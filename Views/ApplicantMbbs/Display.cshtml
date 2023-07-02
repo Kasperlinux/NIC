@@ -1,0 +1,42 @@
+﻿<h3>Mbbs</h3>
+
+
+<div class="table table-responsive">
+    <table class="table table-border table-striped" id="dataTableData">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Applicant Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Mobile</th>
+                <th>XII Percentage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var applicant in Model)
+            {
+                <tr>
+                    <td id="AppId">@applicant.ApplicantId</td>
+                    <td><img src="data:image/png;base64,@System.Convert.ToBase64String(@applicant.PassportPhoto)" width="70" height="70" /></td>
+                    <td>@applicant.AplicantName</td>
+                    <td>@applicant.AgeAsOnCutOffDate</td>
+                    <td>@applicant.Gender</td>
+                    <td>@applicant.Mobile</td>
+                    <td>@applicant.PercentageXii</td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@applicant.ApplicantId">View Data</a>|
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    @*<script src="~/js/datatable_file.js"></script>*@
+}  
