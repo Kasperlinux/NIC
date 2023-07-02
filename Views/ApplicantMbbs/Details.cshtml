@@ -1,0 +1,255 @@
+﻿@model NIC.Models.ApplicantsMbb
+<style>
+    .borderless-input {
+        border: none;
+        outline: none;
+    }
+</style>
+
+
+
+
+<h1>Details</h1>
+
+
+<h4>Applicants Data</h4>
+<hr />
+<form asp-action="Details" method="post">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="data:image/png;base64,@System.Convert.ToBase64String(@Model.PassportPhoto)" width="200" height="200" />
+            <h5>@Model.AplicantName</h5>
+        </div>
+        <div class="col-md-4">
+            <p><strong>Age:</strong> @Model.AgeAsOnCutOffDate</p>
+            <p><strong>Gender: </strong>@Model.Gender </p>
+            <p><strong>Mobile:</strong> @Model.Mobile</p>
+            <p><strong>XII Percentage:</strong> @Model.PercentageXii %</p>
+        </div>
+        <div class="col-md-4">
+            <p><strong>Nationality: </strong><input class="borderless-input" type="text" id="Nationality" value="@Model.Nationality" readonly /></p>
+            <p><strong>Religion:  </strong><input class="borderless-input" id="Religion" value="@Model.Religion" readonly /></p>
+            <p><strong>DOB:  </strong>  @string.Format("{0:MM/dd/yyyy}", Model.Dob)</p>
+            <p><strong>Category: </strong><input class="borderless-input" id="Category" value="@Model.Category" readonly /></p>
+        </div>
+
+        <hr />
+    </div>
+
+    <div class="row offset-4">
+        <h3>Academic Information</h3>
+    </div>
+    <hr />
+    <div class="row offset-2">
+        <div class="col-md-6">
+            <p><strong>Class 12 Percentage: </strong>@Model.PercentageXii</p>
+            <p><strong>PCB percentage:  </strong>@Model.PercentagePcbXii</p>
+            <p><strong>PCBE percentage:  </strong>@Model.PercentagePcbeXii</p>
+            <p><strong>Neet Score Card: </strong>@Model.NeetUgCurrentScore</p>
+        </div>
+        <div class="col-md-6">
+            <p><strong> Neet Score Card </strong></p>
+            <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.NeetUgScoresheet)" width="200" height="200" onclick="openFullscreen(this)" />
+            <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.NeetUgScoresheet)" download="NeetUgScoresheet.png"><i class="fas fa-download"></i></a>
+        </div>
+    </div>
+    <hr />
+    <div class="row offset-2">
+        <div class="col-md-6">
+            <h2>Physics</h2>
+            <p><strong>Theory Marks: </strong>@Model.MarksPhysicsTheory</p>
+            <p><strong> Practical Marks: </strong>@Model.MarksPhysicsPractical</p>
+            <p><strong> Full Marks: </strong>@Model.FullmarksPhysics</p>
+        </div>
+        <div class="col-md-6">
+            <h2>Chemistry</h2>
+            <p><strong> Theory Marks: </strong>@Model.MarksChemistryTheory</p>
+            <p><strong> Practical Marks: </strong>@Model.MarksChemistryPractical</p>
+            <p><strong> Full Marks: </strong>@Model.FullmarksChemistry</p>
+        </div>
+    </div>
+
+    <div class="row offset-2">
+        <div class="col-md-6">
+            <h2>Biology</h2>
+            <p><strong> Theory Marks: </strong>@Model.MarksBiologyTheory</p>
+            <p><strong> Practical Marks: </strong>@Model.MarksBiologyPractical</p>
+            <p><strong> Full Marks: </strong>@Model.FullmarksBiology</p>
+        </div>
+        <div class="col-md-6">
+            <h2>English</h2>
+            <p><strong> Theory Marks: </strong>@Model.MarksEnglishTheory</p>
+            <p><strong> Practical Marks: </strong>@Model.MarksEnglishPractical</p>
+            <p><strong> Full Marks: </strong>@Model.FullmarksEnglish</p>
+        </div>
+    </div>
+    <hr />
+    <div class="row offset-4">
+        <h3>Address Information</h3>
+    </div>
+    <hr>
+    <div class="row offset-2">
+        <div class="col-md-6">
+            <p><strong>Permanent Address</strong></p>
+            <p><strong>State: </strong><input class="borderless-input" id="PerState" value="@Model.PermanentState" readonly /></p>
+            <p><strong>District: </strong><input class="borderless-input" id="PerDistrict" value="@Model.PermanentDistrict" readonly /></p>
+            <p><strong>Block: </strong><input class="borderless-input" id="PerBlock" value="@Model.PermanentBlock" readonly /></p>
+            <p>
+                <strong>Village: </strong><input class="borderless-input" id="PerVillage" value="@Model.PermanentVillage" readonly />
+            </p>
+            <p><strong>Address: </strong>@Model.PresentAddress</p>
+
+        </div>
+        <div class="col-md-6">
+            <p><strong><centre>Present Address</centre></strong></p>
+            <p><strong>State: </strong><input class="borderless-input" id="PreState" value="@Model.PresentState" readonly /></p>
+            <p><strong>District: </strong><input class="borderless-input" id="PreDistrict" value="@Model.PresentDistrict" readonly /></p>
+            <p><strong>Block: </strong><input class="borderless-input" id="PreBlock" value="@Model.PresentBlock" readonly /></p>
+            <p><strong>Village: </strong><input class="borderless-input" id="PreVillage" value="@Model.PresentVillage" readonly /></p>
+            <p><strong>Address: </strong>@Model.PresentAddress</p>
+        </div>
+    </div>
+    <div class="row offset-4">
+        <h3>Gurdian Infomration</h3>
+    </div>
+    <hr>
+    <div class="row offset-2">
+        <div class="col-md-6">
+
+            <p><strong>Gurdian Name: </strong>@Model.GuardianName</p>
+            <p><strong>Occupation: </strong>@Model.GuardianOccupation</p>
+            <p><strong>Gurdian Office Name: </strong>@Model.GuardianOfficeName</p>
+            <p><strong>Gurdian Office Address: </strong>@Model.GuardianOfficeAddress</p>
+
+        </div>
+        <div class="col-md-6 ">
+            <p><strong> Guardian Employer Certificate </strong></p>
+            @if (Model.GuardianEmployerCertificate != null)
+            {
+                <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.GuardianEmployerCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+                <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.GuardianEmployerCertificate)" download="EmpCerti.png"><i class="fas fa-download"></i></a>
+            }
+            else
+            {
+                <img src="data:image/png;base64,@(Model.GuardianEmployerCertificate != null ? System.Convert.ToBase64String(Model.GuardianEmployerCertificate) : "~/images/placeholder.png")" width="200" height="200" onclick="openFullscreen(this)" />
+                <span>No certificate available</span>
+            }
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row offset-4">
+        <h3>Documents</h3>
+    </div>
+    <hr>
+    <div class="row offset-2">
+        <div class="col-md-6">
+            <p><strong>Age proof</strong></p>
+            @if (Model.AgeProof != null)
+            {
+                <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.AgeProof)" width="200" height="200" onclick="openFullscreen(this)" />
+                <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.AgeProof)" download="PrCetificate.png"><i class="fas fa-download"></i></a>
+            }
+            else
+            {
+                <img src="data:image/png;base64,@(Model.AgeProof != null ? System.Convert.ToBase64String(Model.AgeProof) : "~/images/placeholder.png")" width="200" height="200" onclick="openFullscreen(this)" />
+                <span>No certificate available</span>
+            }
+        </div>
+        <div class="col-md-6">
+            <p><strong>Marksheet</strong></p>
+            <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.Marksheet)" width="200" height="200" onclick="openFullscreen(this)" />
+            <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.Marksheet)" download="Marksheet.png"><i class="fas fa-download"></i></a>
+
+
+        </div>
+    </div>
+    <hr>
+    <div class="row offset-2">
+        <div class="col-md-6">
+            <p><strong>Character Certificate</strong></p>
+            <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.CharacterCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+            <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.CharacterCertificate)" download="CharacterCertificate.png"><i class="fas fa-download"></i></a>
+        </div>
+        <div class="col-md-6">
+            <p><strong>Category Certificate</strong></p>
+            @if (Model.CategoryCertificate != null)
+            {
+                <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.CategoryCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+                <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.CategoryCertificate)" download="CategoryCertificate.png"><i class="fas fa-download"></i></a>
+            }
+            else
+            {
+                <img src="~/images/placeholder.png" width="200" height="200" />
+                <span>No certificate available</span>
+            }
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-3 offset-2">
+            <h3>Application Status</h3>
+            <div class="form-group ">
+                <span asp-validation-for="ApplicationStatus" class="text-danger"></span>
+                <select name="appStatus" asp-for="ApplicationStatus" class="form-control" id="Status">
+                    <option selected disabled>Application Status</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4 offset-2">
+            <h3>Application Remark</h3>
+            <div class="form-group">
+                <input name="remarks" asp-for="Remarks" class="form-control" placeholder="Write a Remark for the Applicant" />
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="=row">
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="form-group offset-4">
+            <input type="submit" asp-route-id="@Model.ApplicantId" value="Submit Form" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+<div>
+
+    <a asp-action="Display">Back to List</a>
+</div>
+
+
+
+@section scripts{
+
+    <script src="~/js/getfunction.js"></script>
+
+
+    <script>
+        //function openFullscreen(img) {
+
+        //    if (img.requestFullscreen) {
+        //        img.requestFullscreen();
+        //    } else if (img.webkitRequestFullscreen) { /* Safari */
+        //        img.webkitRequestFullscreen();
+        //    } else if (img.msRequestFullscreen) { /* IE11 */
+        //        img.msRequestFullscreen();
+        //    }
+        //}
+        //function openFullscreen(element) {
+        //    if (element.requestFullscreen) {
+        //        element.requestFullscreen();
+        //    } else if (element.mozRequestFullScreen) { // Firefox
+        //        element.mozRequestFullScreen();
+        //    } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        //        element.webkitRequestFullscreen();
+        //    } else if (element.msRequestFullscreen) { // IE/Edge
+        //        element.msRequestFullscreen();
+        //    }
+        //}
+    </script>
+
+}
