@@ -1,0 +1,71 @@
+﻿
+<div class="row" style="text-align:left">
+    <h1>General Instruction For Form Submission</h1>
+    <h style="border:dashed; border-width:5px; border-style:solid;">
+        <ul style="text-align:left">
+            <li>Kindly ensure that you use your personal E-mail ID for applying, as it will be used for all future communications. Kindly create one, if you do not own a personal E-mail.</li>
+            <li>Do Provide a working Mobile Number as important information will be sent from college on it (Preferably Your Personal)</li>
+            <li>Enter the First Name and the Last Name.</li>
+            <li>Enter a valid E-mail ID.</li>
+            <li>Enter a working Mobile Number.</li>
+            <li>Select your Date Of Birth from the drop-down window.</li>
+            <li>Upload the necessary documents that have been asked</li>
+            <li>Click on "Submit"</li>
+
+        </ul>
+    </h>
+</div>
+
+<style>
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+            .dropdown-content a:hover {
+                background-color: #f1f1f1
+            }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: BLUE;
+    }
+</style>
+<div class="dropdown">
+    <button class="dropbtn">Apply For Courses.</button>
+    <div class="dropdown-content">
+        @*<a href="#">ANM</a>*@
+        <a asp-controller="ANM" asp-action="Index">ANM</a>
+
+        <a href="#">GNM</a>
+        <a asp-controller="ApplicantMbbs" asp-action="Create">MBBS</a>
+    </div>
+</div>

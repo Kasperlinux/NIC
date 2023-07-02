@@ -1,0 +1,545 @@
+﻿@model NIC.Models.ViewModel.MbbsViewModel;
+
+<style>
+    hr {
+        border: 10px solid green;
+        border-radius: 5px;
+    }
+
+    div {
+        padding: 2px;
+    }
+    
+</style>
+
+<div class="offset-1">
+    <h1>Create</h1>
+
+    <h4>Applicants Mbbs</h4>
+    <hr class="col-md-10" />
+</div>
+
+<div class="row offset-md-1">
+    <div>
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="AplicantName" class="control-label"></label>
+                        <input asp-for="AplicantName" class="form-control" />
+                        <span asp-validation-for="AplicantName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="Dob" class="control-label"> DOB (mm/dd/yyy)</label>
+                        <input type="date" asp-for="Dob" class="form-control" min="1990-01-01" max="2008-12-31" />
+                        <span asp-validation-for="Dob" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="Gender" class="control-label"></label>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                        <select asp-for="Gender" class="form-control" id="Gender">
+                            <option selected disabled>Select Gender</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="Mobile" class="control-label"></label>
+                        <input asp-for="Mobile" class="form-control" />
+                        <span asp-validation-for="Mobile" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="EMail" class="control-label"></label>
+                        <input asp-for="EMail" class="form-control" />
+                        <span asp-validation-for="EMail" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="Nationality" class="control-label"></label>
+                        <span asp-validation-for="Nationality" class="text-danger"></span>
+                        <select id="Nationality" asp-for="Nationality" class="form-control">
+                            <option selected disabled>Select Nationality</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="Religion" class="control-label"></label>
+                        <span asp-validation-for="Religion" class="text-danger"></span>
+                        <select asp-for="Religion" class="form-control" id="Religion">
+                            <option selected disabled>Select Religion</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="Category" class="control-label"></label>
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                        <select id="Category" asp-for="Category" class="form-control" onchange="category()">
+                            <option selected disabled>Select Category</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                </div>
+            </div>
+            <hr class="col-md-10" />
+            <div class="row">
+                <h3>Academic Information</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <label asp-for="PercentageXii" class="control-label">Class 12 Percentage</label>
+                    <input type="number" asp-for="PercentageXii" class="form-control" />
+                    <span asp-validation-for="PercentageXii" class="text-danger"></span>
+                </div>
+                <div class="col-md-5">
+                    <label asp-for="PercentagePcbXii" class="control-label">Class 12 PCB Percentage</label>
+                    <input type="number" asp-for="PercentagePcbXii" class="form-control" />
+                    <span asp-validation-for="PercentagePcbXii" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <label asp-for="PercentagePcbeXii" class="control-label">Class 12 PCBE Percentage</label>
+                    <input type="number" asp-for="PercentagePcbeXii" class="form-control" />
+                    <span asp-validation-for="PercentagePcbeXii" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <h4>Physics</h4>
+                    <label asp-for="MarksPhysicsTheory" class="control-label">Physics Theory Marks</label>
+                    <input id="MarksPhysicsTheory" type="number" asp-for="MarksPhysicsTheory" class="form-control" />
+                    <span asp-validation-for="MarksPhysicsTheory" class="text-danger"></span>
+
+                    <label asp-for="MarksPhysicsPractical" class="control-label">Physics Practical Marks</label>
+                    <input id="MarksPhysicsPractical" type="number" asp-for="MarksPhysicsPractical" class="form-control" />
+                    <span asp-validation-for="MarksPhysicsPractical" class="text-danger"></span>
+
+                    <label asp-for="FullmarksPhysics" class="control-label">Physics Full Marks</label>
+                    <input id="FullmarksPhysicsDisplay" type="number" class="form-control" disabled="disabled" />
+                    
+                </div>
+
+                <div class="col-md-5">
+                    <h4>Chemistry</h4>
+                    <label asp-for="MarksChemistryTheory" class="control-label">Chemistry Theory Marks</label>
+                    <input id="MarksChemistryTheory" type="number" asp-for="MarksChemistryTheory" class="form-control" />
+                    <span asp-validation-for="MarksChemistryTheory" class="text-danger"></span>
+
+                    <label asp-for="MarksChemistryPractical" class="control-label">Chemistry Practical Marks</label>
+                    <input id="MarksChemistryPractical" type="number" asp-for="MarksChemistryPractical" class="form-control" />
+                    <span asp-validation-for="MarksChemistryPractical" class="text-danger"></span>
+
+                    <label asp-for="FullmarksChemistry" class="control-label">Chemistry Full Marks</label>
+                    <input id="FullmarksChemistryDisplay" type="number"  class="form-control" disabled="disabled" />
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <h4>Biology</h4>
+                        <label asp-for="MarksBiologyTheory" class="control-label">Biology Theory Marks</label>
+                        <input id="MarksBiologyTheory" type="number" asp-for="MarksBiologyTheory" class="form-control" />
+                        <span asp-validation-for="MarksBiologyTheory" class="text-danger"></span>
+
+                        <label asp-for="MarksBiologyPractical" class="control-label">Biology Practical Marks</label>
+                        <input id="MarksBiologyPractical" type="number" asp-for="MarksBiologyPractical" class="form-control" />
+                        <span asp-validation-for="MarksBiologyPractical" class="text-danger"></span>
+
+                        <label asp-for="FullmarksBiology" class="control-label">Biology Full Marks</label>
+                        <input id="FullmarksBiologyDisplay" type="number"  class="form-control" disabled="disabled" />
+                       
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <h4>English</h4>
+                        <label asp-for="MarksEnglishTheory" class="control-label">English Theory Marks</label>
+                        <input id="MarksEnglishTheory" type="number" asp-for="MarksEnglishTheory" class="form-control" />
+                        <span asp-validation-for="MarksEnglishTheory" class="text-danger"></span>
+
+                        <label asp-for="MarksEnglishPractical" class="control-label">English Pratical Marks</label>
+                        <input id="MarksEnglishPractical" type="number" asp-for="MarksEnglishPractical" class="form-control" />
+                        <span asp-validation-for="MarksEnglishPractical" class="text-danger"></span>
+
+                        <label asp-for="FullmarksEnglish" class="control-label">English Full Marks</label>
+                        <input id="FullmarksEnglishDisplay" type="number" class="form-control" disabled="disabled" />
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <label asp-for="NeetUgCurrentScore" class="control-label">Neet Ug Current Score</label>
+                    <input type="number" asp-for="NeetUgCurrentScore" class="form-control" />
+                    <span asp-validation-for="NeetUgCurrentScore" class="text-danger"></span>
+                </div>
+                <div class="col-md-5">
+                    <label asp-for="NeetUgScoresheet" class="control-label">Neet Ug Scoresheet</label>
+                    <input type="file" asp-for="NeetUgScoresheet" class="form-control" name="NeetUgScoresheet" />
+                    <span asp-validation-for="NeetUgScoresheet" class="text-danger"></span>
+                </div>
+
+            </div>
+            <hr class="col-md-10" />
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="row">
+                        <h3>Permanent Address</h3>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            Enter Permanent Address as on Govt. Id proof
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PermanentState" class="control-label"></label>
+                        <select id="PerState" class="form-control" asp-for="PermanentState">
+                            <option selected disabled>Select State</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PermanentDistrict" class="control-label"></label>
+                        <select id="PerDistrict" class="form-control" asp-for="PermanentDistrict">
+                            <option selected disabled>Select District</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PermanentBlock" class="control-label"></label>
+                        <select id="PerBlock" class="form-control" asp-for="PermanentBlock">
+                            <option selected disabled>Select Block</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PermanentVillage" class="control-label"></label>
+                        <select id="PerVillage" class="form-control" asp-for="PermanentVillage">
+                            <option selected disabled>Select Village</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="PermanentAddress" class="control-label">Landmark, Pin-Code</label>
+                        <input id="PermanentAddress" asp-for="PermanentAddress" class="form-control" />
+                        <span asp-validation-for="PermanentAddress" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="row">
+                        <h3>Present Address</h3>
+                        <div class="form-group">
+                            <input type="checkbox" id="checkBox" onclick="autoFillAddress()"> Same as permanent address                        
+                        </div>
+                    </div>
+                    <div id="originalDiv">
+                        <div class="form-group">
+                            <label asp-for="PresentState" class="control-label"></label>
+                            <select id="PreState" class="form-control" asp-for="PresentState">
+                                <option selected disabled>Select State</option>
+                            </select>
+                            <span asp-validation-for="PresentState" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PresentDistrict" class="control-label"></label>
+                            <select id="PreDistrict" class="form-control" asp-for="PresentDistrict">
+                                <option selected disabled>Select District</option>
+                            </select>
+                            <span asp-validation-for="PresentDistrict" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PresentBlock" class="control-label"></label>
+                            <select id="PreBlock" class="form-control" asp-for="PresentBlock">
+                                <option selected disabled>Select Block</option>
+                            </select>
+                            <span asp-validation-for="PresentBlock" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="PresentVillage" class="control-label"></label>
+                            <select id="PreVillage" class="form-control" asp-for="PresentVillage">
+                                <option selected disabled>Select Village</option>
+                            </select>
+                            <span asp-validation-for="PresentVillage" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PresentAddress" class="control-label">Landmark, Pin-Code</label>
+                            <input id="PresentAddress" asp-for="PresentAddress" class="form-control" />
+                            <span asp-validation-for="PresentAddress" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div id="hideDiv" style="display: none;">
+                        <div class="form-group">
+                            <label asp-for="PresentState" class="control-label"></label>
+                            <input id="SameState" class="form-control" />
+                            <span asp-validation-for="PresentState" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PresentDistrict" class="control-label"></label>
+                            <input id="SameDistrict" class="form-control" />
+                            <span asp-validation-for="PresentDistrict" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PresentBlock" class="control-label"></label>
+                            <input id="SameBlock" class="form-control" />
+                            <span asp-validation-for="PresentBlock" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="PresentVillage" class="control-label"></label>
+                            <input id="SameVillage" class="form-control" />
+                            <span asp-validation-for="PresentVillage" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PresentAddress" class="control-label">Landmark, Pin-Code</label>
+                            <input id="SameAddress" class="form-control" />
+                            <span asp-validation-for="PresentAddress" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            
+            <hr class="col-md-10" />
+            <div class="row">
+                <h3>Document Upload</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="PassportPhoto" class="control-label"></label>
+                        <input type="file" asp-for="PassportPhoto" class="form-control" name="passportPhoto" />
+                        <span asp-validation-for="PassportPhoto" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="PrCetificate" class="control-label"></label>
+                        <input type="file" asp-for="PrCetificate" class="form-control" />
+                        <span asp-validation-for="PrCetificate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="CategoryCertificate" class="control-label"></label>
+                        <input id="CategoryCertificate" type="file" asp-for="CategoryCertificate" class="form-control" />
+                        <span asp-validation-for="CategoryCertificate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="AgeProof" class="control-label"></label>
+                        <input type="file" asp-for="AgeProof" class="form-control" />
+                        <span asp-validation-for="AgeProof" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="Marksheet" class="control-label"></label>
+                        <input type="file" asp-for="Marksheet" class="form-control" />
+                        <span asp-validation-for="Marksheet" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="CharacterCertificate" class="control-label"></label>
+                        <input type="file" asp-for="CharacterCertificate" class="form-control" />
+                        <span asp-validation-for="CharacterCertificate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <hr class="col-md-10" />
+            <div class="row">
+                <h3>Guardian Information</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="GuardianName" class="control-label"></label>
+                        <input asp-for="GuardianName" class="form-control" />
+                        <span asp-validation-for="GuardianName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="GuardianOccupation" class="control-label"></label>
+                        <input asp-for="GuardianOccupation" class="form-control" />
+                        <span asp-validation-for="GuardianOccupation" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="GuardianOfficeName" class="control-label"></label>
+                        <input asp-for="GuardianOfficeName" class="form-control" />
+                        <span asp-validation-for="GuardianOfficeName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="GuardianOfficeAddress" class="control-label"></label>
+                        <input asp-for="GuardianOfficeAddress" class="form-control" />
+                        <span asp-validation-for="GuardianOfficeAddress" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="GuardianEmployerCertificate" class="control-label"></label>
+                        <input type="file" asp-for="GuardianEmployerCertificate" class="form-control" />
+                        <span asp-validation-for="GuardianEmployerCertificate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                </div>
+            </div>
+
+
+            <hr class="col-md-10" />
+            <div class="row">
+                <div class="form-group offset-4">
+                   @* @if(this.User.IsInRole("Admin"))
+                    {
+                        <input type="submit" value="Submit Form" class="btn btn-primary" disabled/>
+                    }
+                    else
+                    {
+                        <input type="submit" value="Submit Form" class="btn btn-primary" />
+                    }*@
+                    <input type="submit" value="Submit Form" class="btn btn-primary" />
+                    
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+</div>
+@section scripts{
+    <script>
+        //function category()
+        //{
+        //    let checkBox = document.getElementById('Category');
+        //    let categoryUpload = document.getElementById('CategoryCertificate');
+        //    if(checkBox.ariaValueMax== 4)
+        //    {
+        //        categoryUpload.setAttribute(disabled)
+        //    }
+        //}
+    </script>
+  
+
+    <script>
+        $(document).ready(function () {
+            // Function to update FullmarksPhysics field
+            function updateFullmarksPhysics() {
+               
+                var marksTheory = parseFloat($("#MarksPhysicsTheory").val());
+                var marksPractical = parseFloat($("#MarksPhysicsPractical").val());
+
+                // Check if both marks have been filled
+                if (!isNaN(marksTheory) && !isNaN(marksPractical)) {
+                    var fullMarks = marksTheory + marksPractical;
+                    $("#FullmarksPhysicsDisplay").val(fullMarks);
+                    $("#FullmarksPhysics").val(fullMarks);
+                }
+            }
+            function updateFullmarksChemistry() {
+
+                var marksTheory = parseFloat($("#MarksChemistryTheory").val());
+                var marksPractical = parseFloat($("#MarksChemistryPractical").val());
+
+                // Check if both marks have been filled
+                if (!isNaN(marksTheory) && !isNaN(marksPractical)) {
+                    var fullMarks = marksTheory + marksPractical;
+                    $("#FullmarksChemistryDisplay").val(fullMarks);
+                    $("#FullmarksChemistry").val(fullMarks);
+                }
+            }
+            function updateFullmarksBiology() {
+
+                var marksTheory = parseFloat($("#MarksBiologyTheory").val());
+                var marksPractical = parseFloat($("#MarksBiologyPractical").val());
+
+                // Check if both marks have been filled
+                if (!isNaN(marksTheory) && !isNaN(marksPractical)) {
+                    var fullMarks = marksTheory + marksPractical;
+                    $("#FullmarksBiologyDisplay").val(fullMarks);
+                    $("#FullmarksBiology").val(fullMarks);
+                }
+            }
+            function updateFullmarksEnglish() {
+
+                var marksTheory = parseFloat($("#MarksEnglishTheory").val());
+                var marksPractical = parseFloat($("#MarksEnglishPractical").val());
+
+                // Check if both marks have been filled
+                if (!isNaN(marksTheory) && !isNaN(marksPractical)) {
+                    var fullMarks = marksTheory + marksPractical;
+                    $("#FullmarksEnglishDisplay").val(fullMarks);
+                    $("#FullmarksEnglish").val(fullMarks);
+                }
+            }
+
+            // Event handler for MarksPhysicsTheory and MarksPhysicsPractical fields
+            $("#MarksPhysicsTheory, #MarksPhysicsPractical").on("input", function () {
+                
+                updateFullmarksPhysics();
+            });
+            $("#MarksChemistryTheory, #MarksChemistryPractical").on("input", function () {
+
+                updateFullmarksChemistry();
+            });
+            $("#MarksBiologyTheory, #MarksBiologyPractical").on("input", function () {
+
+                updateFullmarksBiology();
+            });
+            $("#MarksEnglishTheory, #MarksEnglishPractical").on("input", function () {
+
+                updateFullmarksEnglish();
+            });
+        });
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/cascade.js"></script>
+}
+
+
+
