@@ -116,7 +116,11 @@ CodeMirror.defineMode('powershell', function() {
     /Suspend-(Job|Service)/,
     /TabExpansion2/,
     /Tee-Object/,
+<<<<<<< HEAD
     /NIC-(ComputerSecureChannel|Connection|ModuleManifest|Path|PSSessionConfigurationFile)/,
+=======
+    /Test-(ComputerSecureChannel|Connection|ModuleManifest|Path|PSSessionConfigurationFile)/,
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
     /Trace-Command/,
     /Unblock-File/,
     /Undo-Transaction/,

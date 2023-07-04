@@ -174,6 +174,7 @@ namespace NIC.Models.ViewModel
         public string? ModifiedIp { get; set; }
 
         public int? AgeAsOnCutOffDate { get; set; }
+<<<<<<< HEAD
 
          public int? MBBS1 { get; set; }
 
@@ -186,5 +187,7 @@ namespace NIC.Models.ViewModel
         public int? BASLP5 { get; set; }
 
         public int? ScreeningCentre { get; set; }
+=======
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
     }
 }

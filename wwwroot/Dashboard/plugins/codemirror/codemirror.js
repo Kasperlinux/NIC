@@ -1529,7 +1529,11 @@
     return found
   }
 
+<<<<<<< HEAD
   // NIC whether there exists a collapsed span that partially
+=======
+  // Test whether there exists a collapsed span that partially
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
   // overlaps (covers the start or end, but not both) of a new span.
   // Such overlap is not allowed.
   function conflictingCollapsedRange(doc, lineNo, from, to, marker) {

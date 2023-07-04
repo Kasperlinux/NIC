@@ -20,14 +20,22 @@ namespace NIC.Controllers
         }
 
         [HttpGet]
+<<<<<<< HEAD
         [AllowAnonymous]
+=======
+       
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+<<<<<<< HEAD
         [AllowAnonymous]
+=======
+        
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)

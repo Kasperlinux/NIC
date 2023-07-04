@@ -1039,12 +1039,20 @@ $.validator.addMethod( "nifES", function( value, element ) {
 		return false;
 	}
 
+<<<<<<< HEAD
 	// NIC NIF
+=======
+	// Test NIF
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
 	if ( /^[0-9]{8}[A-Z]{1}$/.test( value ) ) {
 		return ( "TRWAGMYFPDXBNJZSQVHLCKE".charAt( value.substring( 8, 0 ) % 23 ) === value.charAt( 8 ) );
 	}
 
+<<<<<<< HEAD
 	// NIC specials NIF (starts with K, L or M)
+=======
+	// Test specials NIF (starts with K, L or M)
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
 	if ( /^[KLM]{1}/.test( value ) ) {
 		return ( value[ 8 ] === "TRWAGMYFPDXBNJZSQVHLCKE".charAt( value.substring( 8, 1 ) % 23 ) );
 	}

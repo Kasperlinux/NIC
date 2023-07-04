@@ -7539,7 +7539,11 @@ __webpack_require__(561);
 
         var ciphertext = Base64.parse(openSSLStr); // Shortcut
 
+<<<<<<< HEAD
         var ciphertextWords = ciphertext.words; // NIC for salt
+=======
+        var ciphertextWords = ciphertext.words; // Test for salt
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
 
         if (ciphertextWords[0] == 0x53616c74 && ciphertextWords[1] == 0x65645f5f) {
           // Extract salt
@@ -54412,7 +54416,11 @@ WritableState.prototype.getBuffer = function getBuffer() {
       }, '_writableState.buffer is deprecated. Use _writableState.getBuffer ' + 'instead.', 'DEP0003')
     });
   } catch (_) {}
+<<<<<<< HEAD
 })(); // NIC _writableState for inheritance to account for Duplex streams,
+=======
+})(); // Test _writableState for inheritance to account for Duplex streams,
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
 // whose prototype chain only points to Readable.
 
 
@@ -64952,14 +64960,22 @@ function initialReordering(font, glyphs, plan) {
       // as well as below the base glyph. The feature 'below-base
       // form' will be applied to all such occurrences of Ra as well."
       //
+<<<<<<< HEAD
       // NIC case: U+0924,U+094D,U+0930,U+094d,U+0915
+=======
+      // Test case: U+0924,U+094D,U+0930,U+094d,U+0915
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
       // with Sanskrit 2003 font.
       //
       // However, note that Ra,Halant,ZWJ is the correct way to
       // request eyelash form of Ra, so we wouldbn't inhibit it
       // in that sequence.
       //
+<<<<<<< HEAD
       // NIC case: U+0924,U+094D,U+0930,U+094d,U+200D,U+0915
+=======
+      // Test case: U+0924,U+094D,U+0930,U+094d,U+200D,U+0915
+>>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
       for (var _i15 = start; _i15 + 1 < base; _i15++) {
         if (glyphs[_i15].shaperInfo.category === CATEGORIES.Ra && glyphs[_i15 + 1].shaperInfo.category === CATEGORIES.H && (_i15 + 1 === base || glyphs[_i15 + 2].shaperInfo.category === CATEGORIES.ZWJ)) {
           glyphs[_i15].features.blwf = true;
