@@ -1,0 +1,27 @@
+﻿@model List<NIC.Models.MGender>;
+@{
+}
+<h1>Gender</h1>
+
+<a class="btn btn-primary" asp-area="" asp-controller="Gender" asp-action="AddGender"><i class="fa-solid fa-plus fa-xl"></i> Add Gender</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Gender Code</th>
+            <th>Gender Description</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Gender</td>
+                <td>@item.GenderDesc</td>
+                <td><a class="btn btn-primary" href="View/@item.Gender"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

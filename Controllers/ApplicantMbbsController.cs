@@ -1,33 +1,16 @@
-<<<<<<< HEAD
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NIC.Data;
-using NIC.Models;
-using System.Data;
-using NIC.Models.ViewModel;
-
-namespace NIC.Controllers
-{
-
-    public class ApplicantMbbsController : Controller
-    {
-        private readonly  DhsMagacoursesContext context;
-=======
-﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NIC.Data;
 using NIC.Models;
-using NIC.Models.ViewModel;
 using System.Data;
+using NIC.Models.ViewModel;
 
 namespace NIC.Controllers
 {
-    [Authorize(Roles ="Admin,DHS")]
+
     public class ApplicantMbbsController : Controller
     {
         private readonly DhsMagacoursesContext context;
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
         private readonly IWebHostEnvironment environment;
         private readonly ILogger<ApplicantMbbsController> _logger;
 
@@ -109,11 +92,7 @@ namespace NIC.Controllers
             return new JsonResult(data);
         }
 
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
 
         public JsonResult Category()
         {
@@ -135,20 +114,12 @@ namespace NIC.Controllers
 
 
         [HttpGet]
-<<<<<<< HEAD
-        
-=======
-        [AllowAnonymous]
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
+
         public IActionResult Create()
         {
             return View();
         }
 
-<<<<<<< HEAD
-=======
-        [AllowAnonymous]
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
         [HttpPost]
         public IActionResult Create(MbbsViewModel model)
         {
@@ -171,11 +142,8 @@ namespace NIC.Controllers
 
                 var dataBase = new ApplicantsMbb()
                 {
-<<<<<<< HEAD
                     ScreeningCentre = model.ScreeningCentre,
 
-=======
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
                     AplicantName = model.AplicantName,
                     Dob = model.Dob,
 
@@ -215,7 +183,6 @@ namespace NIC.Controllers
 
                     MarksPhysicsTheory = model.MarksPhysicsTheory,
                     MarksPhysicsPractical = model.MarksPhysicsPractical,
-<<<<<<< HEAD
                     FullmarksPhysics = model.MarksPhysicsTheory + model.MarksPhysicsPractical,
 
 
@@ -223,24 +190,11 @@ namespace NIC.Controllers
                     MarksChemistryPractical = model.MarksChemistryPractical,
                     FullmarksChemistry = model.MarksChemistryTheory + model.MarksChemistryPractical,
 
-=======
-                    FullmarksPhysics = (model.MarksPhysicsTheory + model.MarksPhysicsPractical),
-                    
-                    
-                    MarksChemistryTheory = model.MarksChemistryTheory,
-                    MarksChemistryPractical = model.MarksChemistryPractical,
-                    FullmarksChemistry = model.MarksChemistryTheory + model.MarksChemistryPractical,
-                    
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
 
                     MarksBiologyTheory = model.MarksBiologyTheory,
                     MarksBiologyPractical = model.MarksBiologyPractical,
                     FullmarksBiology = model.MarksBiologyTheory + model.MarksBiologyPractical,
-<<<<<<< HEAD
 
-=======
-                    
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
 
                     MarksEnglishTheory = model.MarksEnglishTheory,
                     MarksEnglishPractical = model.MarksEnglishPractical,
@@ -263,7 +217,6 @@ namespace NIC.Controllers
                     DataEntryIp = Request.HttpContext.Connection.RemoteIpAddress.ToString(),
                     AgeAsOnCutOffDate = age,
                 };
-<<<<<<< HEAD
 
                 context.Add(dataBase);
                 context.SaveChanges();
@@ -328,13 +281,9 @@ namespace NIC.Controllers
                     // Handle the case when no applicants are found in the database
                 }
 
-                
 
-               
-=======
-                context.Add(dataBase);
-                context.SaveChanges();
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
+
+
                 return RedirectToAction("Display");
             }
             else
@@ -359,11 +308,7 @@ namespace NIC.Controllers
 
 
         //Original
-<<<<<<< HEAD
 
-=======
-       
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
         public IActionResult Display()
         {
             var applicants = context.ApplicantsMbbs.ToList();

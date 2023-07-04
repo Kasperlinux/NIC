@@ -1,0 +1,39 @@
+﻿@model List<NIC.Models.Session>;
+
+
+<a class="btn btn-primary" asp-area="" asp-controller="Session" asp-action="AddSession"><i class="fa-solid fa-plus fa-xl"></i> Add Session</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Session Code</th>
+            <th>State Code</th>
+            <th>Application Type</th>
+            <th>Academic Session</th>
+            <th>Date As On for Age CutOff</th>
+            <th>Advertisement</th>
+            <th>Advertisement No</th>
+            <th>Advertisement Date</th>
+            <th>Last Date For Application</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SessionCode</td>
+                <td>@item.StateCode</td>
+                <td>@item.ApplicationType</td>
+                <td>@item.AcademicSession</td>
+                <td>@item.DateAsOnforAgeCutOff</td>
+                <td>@item.Advertisement</td>
+                <td>@item.AdvNo</td>
+                <td>@item.LastDateForApplication</td>
+                <td><a class="btn btn-primary" href="View/@item.SessionCode"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

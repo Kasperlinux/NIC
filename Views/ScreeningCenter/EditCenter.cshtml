@@ -1,0 +1,29 @@
+﻿@model List<NIC.Models.MScreeningCentre>;
+@{
+}
+<h1>Centre</h1>
+
+
+<a class="btn btn-primary" asp-area="" asp-controller="ScreeningCenter" asp-action="AddCenter"><i class="fa-solid fa-plus fa-xl"></i> Add Centre</a>
+
+<table class="table border">
+    <thead>
+        <tr>
+            <th>Screening Centre</th>
+            <th>Screening Centre Name</th>
+            <th>Application Type</th>
+            <th> </th>
+            
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ScreeningCentre</td>
+                <td>@item.ScreeningCentreName</td>
+                <td>@item.ApplicationType</td>
+                <td><a class="btn btn-primary" href="View/@item.ScreeningCentre"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

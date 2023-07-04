@@ -1,0 +1,27 @@
+﻿@model List<NIC.Models.MReligion>;
+@{
+}
+<h1>Religion</h1>
+
+<a class="btn btn-primary" asp-area="" asp-controller="Religion" asp-action="AddReligion"><i class="fa-solid fa-plus fa-xl"></i> Add Religion</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Religion Code</th>
+            <th>Religion Description</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Religion</td>
+                <td>@item.ReligionDesc</td>
+                <td><a class="btn btn-primary" href="View/@item.Religion"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

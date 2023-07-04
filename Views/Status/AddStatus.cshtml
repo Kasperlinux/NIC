@@ -1,0 +1,14 @@
+﻿@model NIC.Models.ViewModel.StatusViewModel
+<a class="btn btn-primary" asp-area="" asp-controller="Status" asp-action="EditStatus"><i class="fa-solid fa-arrow-left-to-line"></i>Go Back</a>
+<form method="post" action="AddStatus" class="mt-3">
+    <div class="mb-3">
+        <label for="" class="form-label">Application Status</label>
+        <input type="number" class="form-control" asp-for="ApplicationStatus" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">SApplication Status Description</label>
+        <input type="text" class="form-control" asp-for="ApplicationStatusDesc" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Status</button>
+    <a class="btn btn-primary" asp-controller="Status" asp-action="EditStatus"></a>
+</form>

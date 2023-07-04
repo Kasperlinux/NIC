@@ -1,0 +1,31 @@
+﻿@model List<NIC.Models.MState>;
+@{
+}
+
+<h1>States</h1>
+
+ <a class="btn btn-primary" asp-area="" asp-controller="Master" asp-action="AddState"><i class="fa-solid fa-plus fa-xl"></i> Add State</a>
+
+<table class="table"> 
+    <thead>
+        <tr>
+            <th>State Code</th>
+            <th>State Name</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.StateCode</td>
+                <td>@item.StateName</td>
+                <td><a class="btn btn-primary"  href="View/@item.StateCode"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,35 @@
+﻿@model List<NIC.Models.MVillage>;
+@{
+}
+<h1>Village</h1>
+<a class="btn btn-primary" asp-area="" asp-controller="Village" asp-action="AddVillage"><i class="fa-solid fa-plus fa-xl"></i> Add Village</a>
+
+<hr />
+<table class="table table-bordered" id="dataTableData">
+    <thead>
+        <tr>
+            <th>State Code</th>
+            <th>District Code</th>
+            <th>Village Code</th>
+            <th>Village Name</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StateCode</td>
+                <td>@item.DistrictCode</td>
+                <td>@item.VillageCode</td>
+                <td>@item.VillageName</td>
+                <td><a class="btn btn-primary" href="View/@item.VillageCode"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{    
+    <script src="~/js/datatable_file.js"></script>
+}

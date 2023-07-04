@@ -1,6 +1,7 @@
 ﻿
 @inject SignInManager<ApplicationUser> signInManager;
 
+                        
 <!DOCTYPE html>
 
 <html lang="en">
@@ -125,13 +126,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="~/Dashboard/pages/forms/general.html" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>ANM</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="~/Dashboard/pages/forms/advanced.html" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>GNM</p>
                                     </a>
@@ -143,7 +144,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="~/Dashboard/pages/forms/validation.html" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Allied Courses</p>
                                     </a>
@@ -181,44 +182,164 @@
 
 
 
-                        <li class="nav-header">EXAMPLES</li>
-<<<<<<< HEAD
-                        <li class="nav-header"><a class="nav-link" asp-area="" asp-controller="ApplicantMbbs" asp-action="Display">Display</a></li>
-=======
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
+                        <li class="nav-header">Data Management</li>
+                        @if (this.User.IsInRole("DHS"))
+                        {
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-table"></i>
+                                    <p>
+                                        Data Display
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="ApplicantMbbs" asp-action="Display">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p> MBBS</p>
+                                        </a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="" asp-action="" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>ANM</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="" asp-action="" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>GNM</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="" asp-action="" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Allied</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                       
+                        
+                        
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Master Tables
+                                    Master Data
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-<<<<<<< HEAD
-                                    <a class="nav-link" asp-area="" asp-controller="ApplicantMbbs" asp-action="Display">Display
-=======
-                                    <a href="pages/tables/simple.html" class="nav-link">
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
+                                    <a asp-controller="Master" asp-action="EditState" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Simple Tables</p>
+                                        <p>States</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="District" asp-action="EditDistrict" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Districts</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="Block" asp-action="EditBlock" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Block</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="Village" asp-action="EditVillage" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Village</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/tables/data.html" class="nav-link">
+                                    <a asp-controller="Age" asp-action="EditAge" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>DataTables</p>
+                                        <p>Age</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/tables/jsgrid.html" class="nav-link">
+                                    <a asp-controller="AppType" asp-action="EditAppType" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>jsGrid</p>
+                                        <p>Applciation Type</p>
                                     </a>
                                 </li>
-                            </ul>
-                        </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="Category" asp-action="EditCategory" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Category</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="ScreeningCenter" asp-action="EditCenter" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Screening Center</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Allied" asp-action="EditAllied" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Allied Courses</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Status" asp-action="EditStatus" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Application Status</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="CoursesAnm" asp-action="EditCoursesAnm" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Anm Courses</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="CoursesGnm" asp-action="EditCoursesGnm" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Gnm Courses</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="CoursesMbbs" asp-action="EditCoursesMbbs" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>MBBS Courses</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Gender" asp-action="EditGender" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Gender</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Religion" asp-action="EditReligion" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Religion</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Nationality" asp-action="EditNationality" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Nationality</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Session" asp-action="EditSession" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Session</p>
+                                    </a>
+                                </li>
 
                     </ul>
                 </nav>

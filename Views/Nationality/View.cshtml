@@ -1,0 +1,18 @@
+﻿@model NIC.Models.ViewModel.NationalityViewModel
+@{
+}
+<a class="btn btn-primary" asp-area="" asp-controller="Nationality" asp-action="EditNationality">Go Back</a>
+<h1>Edit Nationality</h1>
+<form method="post" action="View" class="mt-3">
+    <div class="mb-3">
+        <label for="" class="form-label">Nationality Code</label>
+        <input readonly class="form-control" asp-for="Nationality" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Nationality Name</label>
+        <input type="text" class="form-control" asp-for="NationalityName" />
+    </div>
+    <button type="submit" class="btn btn-primary">Update Nationality </button>
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Nationality">Delete Nationality</button>
+
+</form>

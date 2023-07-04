@@ -1,0 +1,19 @@
+﻿@model NIC.Models.ViewModel.ScreeningCenterViewModel
+<h1>Add Screening Centre</h1>
+<a class="btn btn-primary" asp-area="" asp-controller="ScreeningCenter" asp-action="EditCenter"><i class="fa-solid fa-arrow-left-to-line"></i>Go Back</a>
+<form method="post" action="AddCenter" class="mt-3">
+    <div class="mb-3">
+        <label for="" class="form-label">Screening Centre</label>
+        <input type="number" class="form-control" asp-for="ScreeningCentre" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Screening Centre Name</label>
+        <input type="text" class="form-control" asp-for="ScreeningCentreName" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Application Type</label>
+        <input type="number" class="form-control" asp-for="ApplicationType" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Screening Center</button>
+    <a class="btn btn-primary" asp-controller="ScreeningCenter" asp-action="EditCenter">Go Back</a>
+</form>

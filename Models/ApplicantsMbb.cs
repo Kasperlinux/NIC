@@ -177,9 +177,6 @@ public partial class ApplicantsMbb
     public string? ModifiedIp { get; set; }
 
     public int? AgeAsOnCutOffDate { get; set; }
-<<<<<<< HEAD
 
     public int? ScreeningCentre { get; set; }
-=======
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
 }

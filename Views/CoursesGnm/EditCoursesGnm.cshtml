@@ -1,0 +1,28 @@
+﻿@model List<NIC.Models.MCoursesGnm>;
+@{
+}
+<h1>Gnm Courses</h1>
+
+<a class="btn btn-primary" asp-area="" asp-controller="CoursesGnm" asp-action="AddCourseGnm"><i class="fa-solid fa-plus fa-xl"></i> Add Gnm Courses</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Gnm Course Code</th>
+            <th>Gnm Course Name</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.GnmCourseCode</td>
+                <td>@item.GmnCouse</td>
+                <td><a class="btn btn-primary" href="View/@item.GnmCourseCode"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

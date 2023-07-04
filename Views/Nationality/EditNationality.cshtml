@@ -1,0 +1,28 @@
+﻿@model List<NIC.Models.MNationality>;
+@{
+}
+<h1>Nationality</h1>
+
+<a class="btn btn-primary" asp-area="" asp-controller="Nationality" asp-action="AddNationality"><i class="fa-solid fa-plus fa-xl"></i> Add Nationality</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nationality Code</th>
+            <th>Nationality Description</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nationality</td>
+                <td>@item.NationalityName</td>
+                <td><a class="btn btn-primary" href="View/@item.Nationality"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

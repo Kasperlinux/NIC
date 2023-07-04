@@ -1,0 +1,14 @@
+﻿@model NIC.Models.ViewModel.CoursesGnmViewModel
+<a class="btn btn-primary" asp-area="" asp-controller="CoursesGnm" asp-action="EditCoursesGnm">Go Back</a>
+<form method="post" action="AddCourseGnm" class="mt-3">
+    <div class="mb-3">
+        <label for="" class="form-label">Gnm Course Code</label>
+        <input type="number" class="form-control" asp-for="GnmCourseCode" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Gmn Course</label>
+        <input type="text" class="form-control" asp-for="GmnCouse" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Gnm Course</button>
+    <a class="btn btn-primary" asp-controller="CoursesGnm" asp-action="EditCoursesAnm"></a>
+</form>

@@ -1,0 +1,27 @@
+﻿@model List<NIC.Models.MCoursesMbb>;
+@{
+}
+<h1>Mbbs Courses</h1>
+
+<a class="btn btn-primary" asp-area="" asp-controller="CoursesMbbs" asp-action="AddCourseMbbs"><i class="fa-solid fa-plus fa-xl"></i> Add Mbbs Courses</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mbbs Course Code</th>
+            <th>Mbbs Course Name</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MbbsCourseCode</td>
+                <td>@item.MbbsCouseName</td>
+                <td><a class="btn btn-primary" href="View/@item.MbbsCourseCode"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

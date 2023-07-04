@@ -1,0 +1,30 @@
+﻿@model List<NIC.Models.MDistrict>;
+@{
+}
+<h1>District</h1>
+<a class="btn btn-primary" asp-area="" asp-controller="District" asp-action="AddDistrict"><i class="fa-solid fa-plus fa-xl"></i>AddDistrict</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>State Code</th>
+            <th>District Code</th>
+            <th>District Name</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StateCode</td>
+                <td>@item.DistrictCode</td>
+                <td>@item.DistrictName</td>
+                <td><a class="btn btn-primary" href="View/@item.DistrictCode"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

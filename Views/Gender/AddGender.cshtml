@@ -1,0 +1,14 @@
+﻿@model NIC.Models.ViewModel.GenderViewModel
+<a class="btn btn-primary" asp-area="" asp-controller="Gender" asp-action="EditGender">Go Back</a>
+<form method="post" action="AddGender" class="mt-3">
+    <div class="mb-3">
+        <label for="" class="form-label">Gender Code</label>
+        <input type="number" class="form-control" asp-for="Gender" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Gender Description</label>
+        <input type="text" class="form-control" asp-for="GenderDesc" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Gender</button>
+    <a class="btn btn-primary" asp-controller="Gender" asp-action="EditGender">Go Back</a>
+</form>

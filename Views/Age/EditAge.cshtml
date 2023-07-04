@@ -1,0 +1,30 @@
+﻿@model List<NIC.Models.AgeEligibilityCriterion>;
+@{
+}
+<h1>States</h1>
+<a class="btn btn-primary" asp-area="" asp-controller="Age" asp-action="AddAge"><i class="fa-solid fa-plus fa-xl"></i> Add Age</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Session Code</th>
+            <th>Category</th>
+            <th>Age Limit Lower</th>
+            <th>Age Limit upper</th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SessionCode</td>
+                <td>@item.Category</td>
+                <td>@item.AgeLimitLower</td>
+                <td>@item.AgeLimitUpper</td>
+                <td><a class="btn btn-primary" href="View/@item.SessionCode?@item.Category"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

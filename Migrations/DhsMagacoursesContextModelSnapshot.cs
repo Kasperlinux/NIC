@@ -971,6 +971,9 @@ namespace NIC.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int?>("ScreeningCentre")
+                        .HasColumnType("int");
+
                     b.HasKey("ApplicantId");
 
                     b.ToTable("Applicants_MBBS");
@@ -1382,6 +1385,13 @@ namespace NIC.Migrations
 
             modelBuilder.Entity("NIC.Models.PreferenceMbb", b =>
                 {
+                    b.Property<int>("PreferenceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Preference_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PreferenceId"));
+
                     b.Property<int?>("ApplicantId")
                         .HasColumnType("int")
                         .HasColumnName("Applicant_Id");
@@ -1392,6 +1402,8 @@ namespace NIC.Migrations
 
                     b.Property<int?>("Preference")
                         .HasColumnType("int");
+
+                    b.HasKey("PreferenceId");
 
                     b.ToTable("preference_MBBS");
                 });

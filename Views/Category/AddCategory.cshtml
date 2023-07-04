@@ -1,0 +1,14 @@
+﻿@model NIC.Models.ViewModel.CategoryViewModel
+<a class="btn btn-primary" asp-area="" asp-controller="Category" asp-action="EditCategory"><i class="fa-solid fa-arrow-left-to-line"></i>Go Back</a>
+<form method="post" action="AddCategory" class="mt-3">
+    <div class="mb-3">
+        <label for="" class="form-label">Category</label>
+        <input type="number" class="form-control" asp-for="Category" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Category Description</label>
+        <input type="text" class="form-control" asp-for="CategoryDesc" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Category</button>
+    <a class="btn btn-primary" asp-controller="Category" asp-action="EditCategory">Go Back</a>
+</form>

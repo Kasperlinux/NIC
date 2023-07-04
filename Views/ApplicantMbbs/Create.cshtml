@@ -13,7 +13,7 @@
 </style>
 
 <div class="offset-1">
-    <h1>Create</h1>
+  
 
     <h4>Applicants Mbbs</h4>
     <hr class="col-md-10" />
@@ -26,7 +26,6 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
-<<<<<<< HEAD
                         <h3>Select Screening Center</h3>
                         <input asp-for="ScreeningCentre" type="radio" id="option1" name="group" value="1">
                         <label for="option1"> Shillong</label><br>
@@ -132,9 +131,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
-=======
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
-                        <label asp-for="AplicantName" class="control-label"></label>
+                        <label asp-for="AplicantName" class="control-label">Aplicant Name</label>
                         <input asp-for="AplicantName" class="form-control" />
                         <span asp-validation-for="AplicantName" class="text-danger"></span>
                     </div>
@@ -170,7 +167,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="EMail" class="control-label"></label>
+                        <label asp-for="EMail" class="control-label">E Mail</label>
                         <input asp-for="EMail" class="form-control" />
                         <span asp-validation-for="EMail" class="text-danger"></span>
                     </div>
@@ -213,23 +210,23 @@
             </div>
             <hr class="col-md-10" />
             <div class="row">
-                <h3>Academic Information</h3>
+                <h3>Academic Information Class 12 </h3>
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <label asp-for="PercentageXii" class="control-label">Class 12 Percentage</label>
+                    <label asp-for="PercentageXii" class="control-label"> 12 Percentage</label>
                     <input type="number" asp-for="PercentageXii" class="form-control" />
                     <span asp-validation-for="PercentageXii" class="text-danger"></span>
                 </div>
                 <div class="col-md-5">
-                    <label asp-for="PercentagePcbXii" class="control-label">Class 12 PCB Percentage</label>
+                    <label asp-for="PercentagePcbXii" class="control-label">12 PCB Percentage</label>
                     <input type="number" asp-for="PercentagePcbXii" class="form-control" />
                     <span asp-validation-for="PercentagePcbXii" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <label asp-for="PercentagePcbeXii" class="control-label">Class 12 PCBE Percentage</label>
+                    <label asp-for="PercentagePcbeXii" class="control-label">12 PCBE Percentage</label>
                     <input type="number" asp-for="PercentagePcbeXii" class="form-control" />
                     <span asp-validation-for="PercentagePcbeXii" class="text-danger"></span>
                 </div>
@@ -238,30 +235,30 @@
             <div class="row">
                 <div class="col-md-5">
                     <h4>Physics</h4>
-                    <label asp-for="MarksPhysicsTheory" class="control-label">Physics Theory Marks</label>
+                    <label asp-for="MarksPhysicsTheory" class="control-label">Theory Marks</label>
                     <input id="MarksPhysicsTheory" type="number" asp-for="MarksPhysicsTheory" class="form-control" />
                     <span asp-validation-for="MarksPhysicsTheory" class="text-danger"></span>
 
-                    <label asp-for="MarksPhysicsPractical" class="control-label">Physics Practical Marks</label>
+                    <label asp-for="MarksPhysicsPractical" class="control-label">Practical Marks</label>
                     <input id="MarksPhysicsPractical" type="number" asp-for="MarksPhysicsPractical" class="form-control" />
                     <span asp-validation-for="MarksPhysicsPractical" class="text-danger"></span>
 
-                    <label asp-for="FullmarksPhysics" class="control-label">Physics Full Marks</label>
+                    <label asp-for="FullmarksPhysics" class="control-label"> Full Marks</label>
                     <input id="FullmarksPhysicsDisplay" type="number" class="form-control" disabled="disabled" />
                     
                 </div>
 
                 <div class="col-md-5">
                     <h4>Chemistry</h4>
-                    <label asp-for="MarksChemistryTheory" class="control-label">Chemistry Theory Marks</label>
+                    <label asp-for="MarksChemistryTheory" class="control-label">Theory Marks</label>
                     <input id="MarksChemistryTheory" type="number" asp-for="MarksChemistryTheory" class="form-control" />
                     <span asp-validation-for="MarksChemistryTheory" class="text-danger"></span>
 
-                    <label asp-for="MarksChemistryPractical" class="control-label">Chemistry Practical Marks</label>
+                    <label asp-for="MarksChemistryPractical" class="control-label">Practical Marks</label>
                     <input id="MarksChemistryPractical" type="number" asp-for="MarksChemistryPractical" class="form-control" />
                     <span asp-validation-for="MarksChemistryPractical" class="text-danger"></span>
 
-                    <label asp-for="FullmarksChemistry" class="control-label">Chemistry Full Marks</label>
+                    <label asp-for="FullmarksChemistry" class="control-label">Full Marks</label>
                     <input id="FullmarksChemistryDisplay" type="number"  class="form-control" disabled="disabled" />
                     
                 </div>
@@ -270,15 +267,15 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <h4>Biology</h4>
-                        <label asp-for="MarksBiologyTheory" class="control-label">Biology Theory Marks</label>
+                        <label asp-for="MarksBiologyTheory" class="control-label">Theory Marks</label>
                         <input id="MarksBiologyTheory" type="number" asp-for="MarksBiologyTheory" class="form-control" />
                         <span asp-validation-for="MarksBiologyTheory" class="text-danger"></span>
 
-                        <label asp-for="MarksBiologyPractical" class="control-label">Biology Practical Marks</label>
+                        <label asp-for="MarksBiologyPractical" class="control-label">Practical Marks</label>
                         <input id="MarksBiologyPractical" type="number" asp-for="MarksBiologyPractical" class="form-control" />
                         <span asp-validation-for="MarksBiologyPractical" class="text-danger"></span>
 
-                        <label asp-for="FullmarksBiology" class="control-label">Biology Full Marks</label>
+                        <label asp-for="FullmarksBiology" class="control-label">Full Marks</label>
                         <input id="FullmarksBiologyDisplay" type="number"  class="form-control" disabled="disabled" />
                        
                     </div>
@@ -287,15 +284,15 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <h4>English</h4>
-                        <label asp-for="MarksEnglishTheory" class="control-label">English Theory Marks</label>
+                        <label asp-for="MarksEnglishTheory" class="control-label"> Theory Marks</label>
                         <input id="MarksEnglishTheory" type="number" asp-for="MarksEnglishTheory" class="form-control" />
                         <span asp-validation-for="MarksEnglishTheory" class="text-danger"></span>
 
-                        <label asp-for="MarksEnglishPractical" class="control-label">English Pratical Marks</label>
+                        <label asp-for="MarksEnglishPractical" class="control-label">Pratical Marks</label>
                         <input id="MarksEnglishPractical" type="number" asp-for="MarksEnglishPractical" class="form-control" />
                         <span asp-validation-for="MarksEnglishPractical" class="text-danger"></span>
 
-                        <label asp-for="FullmarksEnglish" class="control-label">English Full Marks</label>
+                        <label asp-for="FullmarksEnglish" class="control-label">Full Marks</label>
                         <input id="FullmarksEnglishDisplay" type="number" class="form-control" disabled="disabled" />
                        
                     </div>
@@ -326,25 +323,25 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label asp-for="PermanentState" class="control-label"></label>
+                        <label asp-for="PermanentState" class="control-label">Permanent State</label>
                         <select id="PerState" class="form-control" asp-for="PermanentState">
                             <option selected disabled>Select State</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label asp-for="PermanentDistrict" class="control-label"></label>
+                        <label asp-for="PermanentDistrict" class="control-label">Permanent District</label>
                         <select id="PerDistrict" class="form-control" asp-for="PermanentDistrict">
                             <option selected disabled>Select District</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label asp-for="PermanentBlock" class="control-label"></label>
+                        <label asp-for="PermanentBlock" class="control-label">Permanent Block</label>
                         <select id="PerBlock" class="form-control" asp-for="PermanentBlock">
                             <option selected disabled>Select Block</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label asp-for="PermanentVillage" class="control-label"></label>
+                        <label asp-for="PermanentVillage" class="control-label">Permanent Village</label>
                         <select id="PerVillage" class="form-control" asp-for="PermanentVillage">
                             <option selected disabled>Select Village</option>
                         </select>
@@ -366,21 +363,21 @@
                     </div>
                     <div id="originalDiv">
                         <div class="form-group">
-                            <label asp-for="PresentState" class="control-label"></label>
+                            <label asp-for="PresentState" class="control-label">Present State</label>
                             <select id="PreState" class="form-control" asp-for="PresentState">
                                 <option selected disabled>Select State</option>
                             </select>
                             <span asp-validation-for="PresentState" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="PresentDistrict" class="control-label"></label>
+                            <label asp-for="PresentDistrict" class="control-label">Present District</label>
                             <select id="PreDistrict" class="form-control" asp-for="PresentDistrict">
                                 <option selected disabled>Select District</option>
                             </select>
                             <span asp-validation-for="PresentDistrict" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="PresentBlock" class="control-label"></label>
+                            <label asp-for="PresentBlock" class="control-label">Present Block</label>
                             <select id="PreBlock" class="form-control" asp-for="PresentBlock">
                                 <option selected disabled>Select Block</option>
                             </select>
@@ -388,7 +385,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="PresentVillage" class="control-label"></label>
+                            <label asp-for="PresentVillage" class="control-label">Present Village</label>
                             <select id="PreVillage" class="form-control" asp-for="PresentVillage">
                                 <option selected disabled>Select Village</option>
                             </select>
@@ -402,23 +399,23 @@
                     </div>
                     <div id="hideDiv" style="display: none;">
                         <div class="form-group">
-                            <label asp-for="PresentState" class="control-label"></label>
+                            <label asp-for="PresentState" class="control-label">Present State</label>
                             <input id="SameState" class="form-control" />
                             <span asp-validation-for="PresentState" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="PresentDistrict" class="control-label"></label>
+                            <label asp-for="PresentDistrict" class="control-label">Present District</label>
                             <input id="SameDistrict" class="form-control" />
                             <span asp-validation-for="PresentDistrict" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="PresentBlock" class="control-label"></label>
+                            <label asp-for="PresentBlock" class="control-label">Present Block</label>
                             <input id="SameBlock" class="form-control" />
                             <span asp-validation-for="PresentBlock" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="PresentVillage" class="control-label"></label>
+                            <label asp-for="PresentVillage" class="control-label">Present Village</label>
                             <input id="SameVillage" class="form-control" />
                             <span asp-validation-for="PresentVillage" class="text-danger"></span>
                         </div>
@@ -442,14 +439,14 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="PassportPhoto" class="control-label"></label>
+                        <label asp-for="PassportPhoto" class="control-label">Passport Photo</label>
                         <input type="file" asp-for="PassportPhoto" class="form-control" name="passportPhoto" />
                         <span asp-validation-for="PassportPhoto" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="PrCetificate" class="control-label"></label>
+                        <label asp-for="PrCetificate" class="control-label">Pr Cetificate</label>
                         <input type="file" asp-for="PrCetificate" class="form-control" />
                         <span asp-validation-for="PrCetificate" class="text-danger"></span>
                     </div>
@@ -458,14 +455,14 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="CategoryCertificate" class="control-label"></label>
+                        <label asp-for="CategoryCertificate" class="control-label">Category Certificate</label>
                         <input id="CategoryCertificate" type="file" asp-for="CategoryCertificate" class="form-control" />
                         <span asp-validation-for="CategoryCertificate" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="AgeProof" class="control-label"></label>
+                        <label asp-for="AgeProof" class="control-label">Age Proof</label>
                         <input type="file" asp-for="AgeProof" class="form-control" />
                         <span asp-validation-for="AgeProof" class="text-danger"></span>
                     </div>
@@ -482,7 +479,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="CharacterCertificate" class="control-label"></label>
+                        <label asp-for="CharacterCertificate" class="control-label">Character Certificate</label>
                         <input type="file" asp-for="CharacterCertificate" class="form-control" />
                         <span asp-validation-for="CharacterCertificate" class="text-danger"></span>
                     </div>
@@ -495,14 +492,14 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="GuardianName" class="control-label"></label>
+                        <label asp-for="GuardianName" class="control-label">Guardian Name</label>
                         <input asp-for="GuardianName" class="form-control" />
                         <span asp-validation-for="GuardianName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="GuardianOccupation" class="control-label"></label>
+                        <label asp-for="GuardianOccupation" class="control-label">Guardian Occupation</label>
                         <input asp-for="GuardianOccupation" class="form-control" />
                         <span asp-validation-for="GuardianOccupation" class="text-danger"></span>
                     </div>
@@ -511,14 +508,14 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="GuardianOfficeName" class="control-label"></label>
+                        <label asp-for="GuardianOfficeName" class="control-label">Guardian OfficeName</label>
                         <input asp-for="GuardianOfficeName" class="form-control" />
                         <span asp-validation-for="GuardianOfficeName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="GuardianOfficeAddress" class="control-label"></label>
+                        <label asp-for="GuardianOfficeAddress" class="control-label">Guardian OfficeAddress</label>
                         <input asp-for="GuardianOfficeAddress" class="form-control" />
                         <span asp-validation-for="GuardianOfficeAddress" class="text-danger"></span>
                     </div>
@@ -527,7 +524,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label asp-for="GuardianEmployerCertificate" class="control-label"></label>
+                        <label asp-for="GuardianEmployerCertificate" class="control-label">GuardianEmployer Certificate</label>
                         <input type="file" asp-for="GuardianEmployerCertificate" class="form-control" />
                         <span asp-validation-for="GuardianEmployerCertificate" class="text-danger"></span>
                     </div>
@@ -540,15 +537,15 @@
             <hr class="col-md-10" />
             <div class="row">
                 <div class="form-group offset-4">
-                   @* @if(this.User.IsInRole("Admin"))
+                    @if(this.User.IsInRole("Admin"))
                     {
-                        <input type="submit" value="Submit Form" class="btn btn-primary" disabled/>
+                        <input type="submit" value="Submit" class="btn btn-primary" disabled/>
                     }
                     else
                     {
-                        <input type="submit" value="Submit Form" class="btn btn-primary" />
-                    }*@
-                    <input type="submit" value="Submit Form" class="btn btn-primary" />
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    }
+                    
                     
                 </div>
             </div>
@@ -644,7 +641,6 @@
             });
         });
     </script>
-<<<<<<< HEAD
     <script>
         function disablePreference(preference) {
             var selectElements = document.getElementsByClassName('select');
@@ -671,8 +667,6 @@
             }
         }
     </script>
-=======
->>>>>>> c395b6a2d4306bc1a16817092014799a2fe91197
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/js/cascade.js"></script>

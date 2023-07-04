@@ -1,0 +1,31 @@
+﻿@model List<NIC.Models.MBlock>;
+@{
+}
+<h1>Block</h1>
+<a class="btn btn-primary" asp-area="" asp-controller="Block" asp-action="AddBlock"><i class="fa-solid fa-plus fa-xl"></i> Add Block</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>State Code</th>
+            <th>District Code</th>
+            <th>Block Code</th>
+            <th>Block Name</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StateCode</td>
+                <td>@item.DistrictCode</td>
+                <td>@item.BlockCode</td>
+                <td>@item.BlockName</td>
+                <td><a class="btn btn-primary" href="View/@item.BlockCode"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

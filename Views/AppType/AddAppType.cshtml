@@ -1,0 +1,14 @@
+﻿@model NIC.Models.ViewModel.AppTypeViewModel
+
+<form method="post" action="AddAppType" class="mt-3">
+    <div class="mb-3">
+        <label for="" class="form-label">Application Type</label>
+        <input type="number" class="form-control" asp-for="ApplicationType" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Application Description</label>
+        <input type="text" class="form-control" asp-for="ApplicationDesc" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Application Type</button>
+    <a asp-controller="AppType" asp-action="EditApptype" class="btn btn-primary">Go Back</a>
+</form>

@@ -1,0 +1,26 @@
+﻿@model NIC.Models.ViewModel.AgeCriteriaViewModel
+@{
+}
+<h1>Edit Age</h1>
+<form method="post" action="View" class="mt-3">
+    <div class="mb-3">
+        <label for="" class="form-label">Session Code</label>
+        <input readonly class="form-control" asp-for="SessionCode" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Category</label>
+        <input readonly class="form-control" asp-for="Category" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Age Limit Lower</label>
+        <input type="text" class="form-control" asp-for="AgeLimitLower" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Age Limit upperr</label>
+        <input type="text" class="form-control" asp-for="AgeLimitUpper" />
+    </div>
+    <button type="submit" class="btn btn-primary">Update Age criteria</button>
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Age">Delete Age Criteria</button>
+    <a class="btn btn-primary" asp-area="" asp-controller="Age" asp-action="EditAge"><i class="fa-solid fa-arrow-left-to-line"></i>Go Back</a>
+
+</form>
