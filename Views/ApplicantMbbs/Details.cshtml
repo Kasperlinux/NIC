@@ -17,9 +17,10 @@
 <h4>Applicants Data</h4>
 <hr />
 <form asp-action="Details" method="post">
+   
     <div class="row">
         <div class="col-md-4">
-            <img class="fancybox" data-fancybox="gallery1" data-caption="Image 1" src="data:image/png;base64,@System.Convert.ToBase64String(@Model.PassportPhoto)" width="200" height="200" />
+            <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(@Model.PassportPhoto)" width="200" height="200" />
             <h5>@Model.AplicantName</h5>
         </div>
         <div class="col-md-4">
@@ -51,7 +52,7 @@
         </div>
         <div class="col-md-6">
             <p><strong> Neet Score Card </strong></p>
-            <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.NeetUgScoresheet)" width="200" height="200" onclick="openFullscreen(this)" />
+            <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.NeetUgScoresheet)" width="200" height="200" onclick="openFullscreen(this)" />
             <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.NeetUgScoresheet)" download="NeetUgScoresheet.png"><i class="fas fa-download"></i></a>
         </div>
     </div>
@@ -128,7 +129,7 @@
             <p><strong> Guardian Employer Certificate </strong></p>
             @if (Model.GuardianEmployerCertificate != null)
             {
-                <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.GuardianEmployerCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+                <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.GuardianEmployerCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
                 <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.GuardianEmployerCertificate)" download="EmpCerti.png"><i class="fas fa-download"></i></a>
             }
             else
@@ -150,7 +151,7 @@
             <p><strong>Age proof</strong></p>
             @if (Model.AgeProof != null)
             {
-                <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.AgeProof)" width="200" height="200" onclick="openFullscreen(this)" />
+                <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.AgeProof)" width="200" height="200" onclick="openFullscreen(this)" />
                 <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.AgeProof)" download="PrCetificate.png"><i class="fas fa-download"></i></a>
             }
             else
@@ -161,7 +162,7 @@
         </div>
         <div class="col-md-6">
             <p><strong>Marksheet</strong></p>
-            <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.Marksheet)" width="200" height="200" onclick="openFullscreen(this)" />
+            <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.Marksheet)" width="200" height="200" onclick="openFullscreen(this)" />
             <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.Marksheet)" download="Marksheet.png"><i class="fas fa-download"></i></a>
 
 
@@ -171,14 +172,14 @@
     <div class="row offset-2">
         <div class="col-md-6">
             <p><strong>Character Certificate</strong></p>
-            <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.CharacterCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+            <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.CharacterCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
             <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.CharacterCertificate)" download="CharacterCertificate.png"><i class="fas fa-download"></i></a>
         </div>
         <div class="col-md-6">
             <p><strong>Category Certificate</strong></p>
             @if (Model.CategoryCertificate != null)
             {
-                <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.CategoryCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+                <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.CategoryCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
                 <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.CategoryCertificate)" download="CategoryCertificate.png"><i class="fas fa-download"></i></a>
             }
             else
@@ -254,15 +255,37 @@
         //}
     </script>
     <script>
-        $(document).ready(function () {
-            // Initialize fancybox for images with the 'fancybox' class
-            $('.fancybox').fancybox({
-                thumbs: {
-                    autoStart: false, // Show thumbnails automatically
-                },
-                buttons: ['zoom', 'close'], // Show zoom and close buttons only
+        // Get all images with the 'zoomable-image' class
+        const images = document.querySelectorAll('.zoomable-image');
+
+        // Open the image in a new window/tab when clicked
+        function openImageInNewTab(dataUrl) {
+            const blob = dataURLToBlob(dataUrl);
+            const url = URL.createObjectURL(blob);
+            window.open(url, '_blank');
+        }
+
+        // Convert data URL to Blob
+        function dataURLToBlob(dataUrl) {
+            const parts = dataUrl.split(';base64,');
+            const contentType = parts[0].split(':')[1];
+            const byteCharacters = atob(parts[1]);
+            const byteArrays = [];
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteArrays.push(byteCharacters.charCodeAt(i));
+            }
+            const byteArray = new Uint8Array(byteArrays);
+            return new Blob([byteArray], { type: contentType });
+        }
+
+        // Add click event listener to all the images
+        images.forEach(function (img) {
+            img.addEventListener('click', function () {
+                openImageInNewTab(img.src);
             });
         });
+
+
     </script>
 
 
