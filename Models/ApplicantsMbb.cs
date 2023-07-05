@@ -55,9 +55,11 @@ public partial class ApplicantsMbb
 
     [Column("eMail")]
     [StringLength(100)]
+    [EmailAddress]
     public string? EMail { get; set; }
 
     [StringLength(10)]
+    [Phone]
     public string? Mobile { get; set; }
 
     public int? Nationality { get; set; }

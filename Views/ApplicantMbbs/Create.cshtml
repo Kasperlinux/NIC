@@ -27,13 +27,14 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <h3>Select Screening Center</h3>
-                        <input asp-for="ScreeningCentre" type="radio" id="option1" name="group" value="1">
-                        <label for="option1"> Shillong</label><br>
-                        <input asp-for="ScreeningCentre" type="radio" id="option2" name="group" value="2">
-                        <label for="option2">Tura</label><br>                      
+                        <select asp-for="ScreeningCentre">
+                            <option value="1">Shillong</option>
+                            <option value="2">Tura</option>
+                        </select>
+                        
                     </div>
                 </div>
-                <div class="col-md-5">
+                @*<div class="col-md-5">
                     <div class="form-group">
                         <h3>Select Preference for the Courses</h3>
                         <div class="row">                         
@@ -41,8 +42,8 @@
                                     MBBS :
                             </div>
                             <div class="col-md-3">
-                                @*//class="select"*@
-                                <select  asp-for="MBBS1" name="MBBS1" onchange="disablePreference(this.value);">
+                                
+                                <select class="select" id="MBBS1" asp-for="MBBS1" name="MBBS1" onchange="disablePreference(this.value,this.id);">
                                         <option value="">Select Preference</option>
                                     <option asp-for="MBBS1" value="1">1</option>
                                     <option asp-for="MBBS1" value="2">2</option>
@@ -58,7 +59,7 @@
                                     BDS :
                              </div>
                              <div class="col-md-3">
-                                <select  asp-for="BDS2" name="BDS2" onchange="disablePreference(this.value);">
+                                <select class="select" id="BDS2" asp-for="BDS2" name="BDS2" onchange="disablePreference(this.value,this.id);">
                                         <option value="">Select Preference</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -74,7 +75,7 @@
                                 BHMS :
                             </div>
                             <div class="col-md-3">
-                                <select  asp-for="BHMS3" name="BHMS3" onchange="disablePreference(this.value);">
+                                <select class="select" id="BHMS3" asp-for="BHMS3" name="BHMS3" onchange="disablePreference(this.value,this.id);">
                                     <option value="">Select Preference</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -90,7 +91,7 @@
                                 BAMS :
                             </div>
                             <div class="col-md-3">
-                                <select asp-for="BAMS4" name="BAMS4" onchange="disablePreference(this.value);">
+                                <select class="select" id="BAMS4" asp-for="BAMS4" name="BAMS4" onchange="disablePreference(this.value,this.id);">
                                     <option value="">Select Preference</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -108,11 +109,11 @@
                             </div>
                             <div class="col-md-3">
 
-                                <select  asp-for="BASLP5" name="BASLP5" onchange="disablePreference(this.value);">
+                                <select class="select" id="BASLP5" asp-for="BASLP5" name="BASLP5" onchange="disablePreference(this.value,this.id);">
                                     <option value="">Select Preference</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
-                                    <option value="3">3</option>
+                                    <option value="3">3</option> 
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                 </select>
@@ -125,7 +126,98 @@
                             
                         </div>
                   </div>
-                </div>    
+                </div> *@   
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <h3>Select Preference for the Courses</h3>
+                        <div class="row">
+                            <div class="col-md-3">
+                                MBBS:
+                            </div>
+                            <div class="col-md-3">
+                                <select class="select" id="MBBS1" asp-for="MBBS1" name="MBBS1" onchange="disablePreference(this.value,this.id);">
+                                    <option value="">Select Preference</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                BDS:
+                            </div>
+                            <div class="col-md-3">
+                                <select class="select" id="BDS2" asp-for="BDS2" name="BDS2" onchange="disablePreference(this.value,this.id);">
+                                    <option value="">Select Preference</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                BHMS:
+                            </div>
+                            <div class="col-md-3">
+                                <select class="select" id="BHMS3" asp-for="BHMS3" name="BHMS3" onchange="disablePreference(this.value,this.id);">
+                                    <option value="">Select Preference</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                BAMS:
+                            </div>
+                            <div class="col-md-3">
+                                <select class="select" id="BAMS4" asp-for="BAMS4" name="BAMS4" onchange="disablePreference(this.value,this.id);">
+                                    <option value="">Select Preference</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                BASLP:
+                            </div>
+                            <div class="col-md-3">
+                                <select class="select" id="BASLP5" asp-for="BASLP5" name="BASLP5" onchange="disablePreference(this.value,this.id);">
+                                    <option value="">Select Preference</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="button" value="Reset" onclick="resetForm();">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 </div>
             <hr class="col-md-10" />
             <div class="row">
@@ -161,14 +253,14 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <label asp-for="Mobile" class="control-label"></label>
-                        <input asp-for="Mobile" class="form-control" />
+                        <input asp-for="Mobile" class="form-control" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" type="number"/>
                         <span asp-validation-for="Mobile" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
                         <label asp-for="EMail" class="control-label">E Mail</label>
-                        <input asp-for="EMail" class="form-control" />
+                        <input asp-for="EMail" class="form-control" pattern="[a-zA-Z0-9._%+-]+[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address"/>
                         <span asp-validation-for="EMail" class="text-danger"></span>
                     </div>
                 </div>
@@ -215,19 +307,19 @@
             <div class="row">
                 <div class="col-md-5">
                     <label asp-for="PercentageXii" class="control-label"> 12 Percentage</label>
-                    <input type="number" asp-for="PercentageXii" class="form-control" />
+                    <input type="number" asp-for="PercentageXii" class="form-control" min="0" max="100"  />
                     <span asp-validation-for="PercentageXii" class="text-danger"></span>
                 </div>
                 <div class="col-md-5">
                     <label asp-for="PercentagePcbXii" class="control-label">12 PCB Percentage</label>
-                    <input type="number" asp-for="PercentagePcbXii" class="form-control" />
+                    <input type="number" asp-for="PercentagePcbXii" class="form-control" min="0" max="100" />
                     <span asp-validation-for="PercentagePcbXii" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5">
                     <label asp-for="PercentagePcbeXii" class="control-label">12 PCBE Percentage</label>
-                    <input type="number" asp-for="PercentagePcbeXii" class="form-control" />
+                    <input type="number" asp-for="PercentagePcbeXii" class="form-control" min="0" max="100" />
                     <span asp-validation-for="PercentagePcbeXii" class="text-danger"></span>
                 </div>
 
@@ -236,11 +328,11 @@
                 <div class="col-md-5">
                     <h4>Physics</h4>
                     <label asp-for="MarksPhysicsTheory" class="control-label">Theory Marks</label>
-                    <input id="MarksPhysicsTheory" type="number" asp-for="MarksPhysicsTheory" class="form-control" />
+                    <input id="MarksPhysicsTheory" type="number" asp-for="MarksPhysicsTheory" class="form-control" min="0" max="80" />
                     <span asp-validation-for="MarksPhysicsTheory" class="text-danger"></span>
 
                     <label asp-for="MarksPhysicsPractical" class="control-label">Practical Marks</label>
-                    <input id="MarksPhysicsPractical" type="number" asp-for="MarksPhysicsPractical" class="form-control" />
+                    <input id="MarksPhysicsPractical" type="number" asp-for="MarksPhysicsPractical" class="form-control" min="0" max="20" />
                     <span asp-validation-for="MarksPhysicsPractical" class="text-danger"></span>
 
                     <label asp-for="FullmarksPhysics" class="control-label"> Full Marks</label>
@@ -251,11 +343,11 @@
                 <div class="col-md-5">
                     <h4>Chemistry</h4>
                     <label asp-for="MarksChemistryTheory" class="control-label">Theory Marks</label>
-                    <input id="MarksChemistryTheory" type="number" asp-for="MarksChemistryTheory" class="form-control" />
+                    <input id="MarksChemistryTheory" type="number" asp-for="MarksChemistryTheory" class="form-control" min="0" max="80" />
                     <span asp-validation-for="MarksChemistryTheory" class="text-danger"></span>
 
                     <label asp-for="MarksChemistryPractical" class="control-label">Practical Marks</label>
-                    <input id="MarksChemistryPractical" type="number" asp-for="MarksChemistryPractical" class="form-control" />
+                    <input id="MarksChemistryPractical" type="number" asp-for="MarksChemistryPractical" class="form-control" min="0" max="20" />
                     <span asp-validation-for="MarksChemistryPractical" class="text-danger"></span>
 
                     <label asp-for="FullmarksChemistry" class="control-label">Full Marks</label>
@@ -268,11 +360,11 @@
                     <div class="form-group">
                         <h4>Biology</h4>
                         <label asp-for="MarksBiologyTheory" class="control-label">Theory Marks</label>
-                        <input id="MarksBiologyTheory" type="number" asp-for="MarksBiologyTheory" class="form-control" />
+                        <input id="MarksBiologyTheory" type="number" asp-for="MarksBiologyTheory" class="form-control" min="0" max="80" />
                         <span asp-validation-for="MarksBiologyTheory" class="text-danger"></span>
 
                         <label asp-for="MarksBiologyPractical" class="control-label">Practical Marks</label>
-                        <input id="MarksBiologyPractical" type="number" asp-for="MarksBiologyPractical" class="form-control" />
+                        <input id="MarksBiologyPractical" type="number" asp-for="MarksBiologyPractical" class="form-control" min="0" max="20" />
                         <span asp-validation-for="MarksBiologyPractical" class="text-danger"></span>
 
                         <label asp-for="FullmarksBiology" class="control-label">Full Marks</label>
@@ -285,11 +377,11 @@
                     <div class="form-group">
                         <h4>English</h4>
                         <label asp-for="MarksEnglishTheory" class="control-label"> Theory Marks</label>
-                        <input id="MarksEnglishTheory" type="number" asp-for="MarksEnglishTheory" class="form-control" />
+                        <input id="MarksEnglishTheory" type="number" asp-for="MarksEnglishTheory" class="form-control" min="0" max="80" />
                         <span asp-validation-for="MarksEnglishTheory" class="text-danger"></span>
 
                         <label asp-for="MarksEnglishPractical" class="control-label">Pratical Marks</label>
-                        <input id="MarksEnglishPractical" type="number" asp-for="MarksEnglishPractical" class="form-control" />
+                        <input id="MarksEnglishPractical" type="number" asp-for="MarksEnglishPractical" class="form-control" min="0" max="20" />
                         <span asp-validation-for="MarksEnglishPractical" class="text-danger"></span>
 
                         <label asp-for="FullmarksEnglish" class="control-label">Full Marks</label>
@@ -301,7 +393,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <label asp-for="NeetUgCurrentScore" class="control-label">Neet Ug Current Score</label>
-                    <input type="number" asp-for="NeetUgCurrentScore" class="form-control" />
+                    <input type="number" asp-for="NeetUgCurrentScore" class="form-control" min="0" max="500" />
                     <span asp-validation-for="NeetUgCurrentScore" class="text-danger"></span>
                 </div>
                 <div class="col-md-5">
@@ -640,33 +732,104 @@
                 updateFullmarksEnglish();
             });
         });
-    </script>
-    <script>
-        function disablePreference(preference) {
-            var selectElements = document.getElementsByClassName('select');
 
-            for (var i = 0; i < selectElements.length; i++) {
-                var options = selectElements[i].getElementsByTagName('option');
-                for (var j = 0; j < options.length; j++) {
-                    if (options[j].value === preference) {
-                        options[j].disabled = true;
+
+       
+    </script>
+   @* <script>
+        // Function to disable selected preference in other select elements
+        function disablePreference(selectedValue, currentSelectId) {
+            const selectIds = ['MBBS1', 'BDS2', 'BHMS3', 'BAMS4', 'BASLP5'];
+
+            // Enable all options
+            for (let i = 0; i < selectIds.length; i++) {
+                const selectId = selectIds[i];
+                const select = document.getElementById(selectId);
+                for (let j = 0; j < select.options.length; j++) {
+                    select.options[j].disabled = false;
+                }
+            }
+
+            // Disable selected preference in other select elements
+            for (let i = 0; i < selectIds.length; i++) {
+                const selectId = selectIds[i];
+                const select = document.getElementById(selectId);
+
+                // Skip the current select element
+                if (selectId !== currentSelectId && select.value === selectedValue) {
+                    select.value = '';
+                }
+
+                // Disable the selected option in other select elements
+                for (let j = 0; j < select.options.length; j++) {
+                    if (select.options[j].value === selectedValue) {
+                        select.options[j].disabled = true;
                     }
                 }
             }
         }
 
+        // Function to reset all select elements
         function resetForm() {
-            var selectElements = document.getElementsByClassName('select');
+            const selectIds = ['MBBS1', 'BDS2', 'BHMS3', 'BAMS4', 'BASLP5'];
+            for (let i = 0; i < selectIds.length; i++) {
+                const selectId = selectIds[i];
+                const select = document.getElementById(selectId);
+                select.value = '';
+                for (let j = 0; j < select.options.length; j++) {
+                    select.options[j].disabled = false;
+                }
+            }
+        }
+    </script>*@
+    <script>
+        // Function to disable selected preference in other select elements
+        function disablePreference(selectedValue, currentSelectId) {
+            const selectIds = ['MBBS1', 'BDS2', 'BHMS3', 'BAMS4', 'BASLP5'];
 
-            for (var i = 0; i < selectElements.length; i++) {
-                selectElements[i].value = ''; // Reset the selected value
-                var options = selectElements[i].getElementsByTagName('option');
-                for (var j = 0; j < options.length; j++) {
-                    options[j].disabled = false; // Enable all options
+            // Enable all options
+            for (let i = 0; i < selectIds.length; i++) {
+                const selectId = selectIds[i];
+                const select = document.getElementById(selectId);
+                for (let j = 0; j < select.options.length; j++) {
+                    select.options[j].disabled = false;
+                }
+            }
+
+            // Disable selected preference in other select elements
+            for (let i = 0; i < selectIds.length; i++) {
+                const selectId = selectIds[i];
+                const select = document.getElementById(selectId);
+
+                // Skip the current select element
+                if (selectId !== currentSelectId && select.value === selectedValue) {
+                    select.value = '';
+                }
+
+                // Disable the selected option in other select elements
+                for (let j = 0; j < select.options.length; j++) {
+                    if (select.options[j].value === selectedValue) {
+                        select.options[j].disabled = true;
+                    }
+                }
+            }
+        }
+
+        // Function to reset all select elements
+        function resetForm() {
+            const selectIds = ['MBBS1', 'BDS2', 'BHMS3', 'BAMS4', 'BASLP5'];
+            for (let i = 0; i < selectIds.length; i++) {
+                const selectId = selectIds[i];
+                const select = document.getElementById(selectId);
+                select.value = '';
+                for (let j = 0; j < select.options.length; j++) {
+                    select.options[j].disabled = false;
                 }
             }
         }
     </script>
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/js/cascade.js"></script>

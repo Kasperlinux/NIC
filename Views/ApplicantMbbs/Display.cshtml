@@ -1,4 +1,5 @@
-﻿<h3>Mbbs</h3>
+﻿
+<h3>Mbbs</h3>
 
 
 <div class="table table-responsive">
@@ -20,9 +21,23 @@
             {
                 <tr>
                     <td id="AppId">@applicant.ApplicantId</td>
-                    <td><img src="data:image/png;base64,@System.Convert.ToBase64String(@applicant.PassportPhoto)" width="70" height="70" /></td>
+                   @* <td>
+                        <img src="data:image/png;base64,@(@applicant.PassportPhoto != null ? System.Convert.ToBase64String(@applicant.PassportPhoto) : "~/image/placeholder.png")" width="70" height="70" />
+                    </td>*@
+                    <td>
+                        @if (applicant.PassportPhoto != null)
+                        {
+                            <img src="data:image/png;base64,@(applicant.PassportPhoto != null ? System.Convert.ToBase64String(applicant.PassportPhoto) : "~/image/placeholder.png")" width="70" height="70" onclick="openFullscreen(this)" />
+                        }
+                        else
+                        {
+                            <img src="~/image/placeholder.png" width="70" height="70" />
+                        }
+                    </td>
+
                     <td>@applicant.AplicantName</td>
                     <td>@applicant.AgeAsOnCutOffDate</td>
+                    @*<img src="h:\nic\wwwroot\image\placeholder.png" />*@
                     <td>@applicant.Gender</td>
                     <td>@applicant.Mobile</td>
                     <td>@applicant.PercentageXii</td>

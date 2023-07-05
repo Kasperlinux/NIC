@@ -50,10 +50,12 @@ namespace NIC.Models.ViewModel
         public string? PresentAddress { get; set; }
 
         [Column("eMail")]
+        [EmailAddress]
         [StringLength(100)]
         public string? EMail { get; set; }
 
         [StringLength(10)]
+        [Phone]
         public string? Mobile { get; set; }
 
         public int? Nationality { get; set; }

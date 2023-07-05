@@ -220,6 +220,7 @@ namespace NIC.Controllers
 
                 context.Add(dataBase);
                 context.SaveChanges();
+
                 var latestApplicant = context.ApplicantsMbbs
                                                 .OrderByDescending(e => e.ApplicantId)
                                                 .FirstOrDefault();
@@ -228,21 +229,30 @@ namespace NIC.Controllers
                 {
                     int latestApplicantId = latestApplicant.ApplicantId;
 
-                    var preferences = new PreferenceMbb
+                    var preferences1 = new PreferenceMbb
                     {
                         ApplicantId = latestApplicantId,
                         MbbsCourseCode = 1,
                         Preference = model.MBBS1
                     };
 
-                    context.PreferenceMbbs.Add(preferences);
+                    context.PreferenceMbbs.Add(preferences1);
 
 
-                    var preferences3 = new PreferenceMbb
+                    var preferences2 = new PreferenceMbb
                     {
                         ApplicantId = latestApplicantId,
                         MbbsCourseCode = 2,
                         Preference = model.BDS2
+                    };
+
+                    context.PreferenceMbbs.Add(preferences2);
+
+                    var preferences3 = new PreferenceMbb
+                    {
+                        ApplicantId = latestApplicantId,
+                        MbbsCourseCode = 3,
+                        Preference = model.BHMS3
                     };
 
                     context.PreferenceMbbs.Add(preferences3);
@@ -250,8 +260,8 @@ namespace NIC.Controllers
                     var preferences4 = new PreferenceMbb
                     {
                         ApplicantId = latestApplicantId,
-                        MbbsCourseCode = 3,
-                        Preference = model.BHMS3
+                        MbbsCourseCode = 4,
+                        Preference = model.BAMS4
                     };
 
                     context.PreferenceMbbs.Add(preferences4);
@@ -259,20 +269,12 @@ namespace NIC.Controllers
                     var preferences5 = new PreferenceMbb
                     {
                         ApplicantId = latestApplicantId,
-                        MbbsCourseCode = 4,
-                        Preference = model.BAMS4
-                    };
-
-                    context.PreferenceMbbs.Add(preferences5);
-
-                    preferences5 = new PreferenceMbb
-                    {
-                        ApplicantId = latestApplicantId,
                         MbbsCourseCode = 5,
                         Preference = model.BASLP5
                     };
 
                     context.PreferenceMbbs.Add(preferences5);
+
 
                     context.SaveChanges();
                 }
@@ -284,7 +286,7 @@ namespace NIC.Controllers
 
 
 
-                return RedirectToAction("Display");
+                return RedirectToAction("Index","Home");
             }
             else
             {
