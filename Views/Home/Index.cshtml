@@ -1,10 +1,129 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .notice-board-container {
+        height: 200px;
+        overflow: hidden;
+    }
 
+    .notice-board-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        animation: scroll-notice 20s infinite linear;
+    }
+
+    @@-webkit-keyframes scroll-notice {
+        0%{
+            transform: translateY(0);
+        }
+        100%{
+            transform: translateY(-100%);
+        }
+
+        .important-links-section {
+            margin-top: 20px;
+        }
+
+            .important-links-section h4 {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .important-links-section ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .important-links-section li {
+                margin-bottom: 5px;
+            }
+
+                .important-links-section li a {
+                    color: #333;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                }
+
+                    .important-links-section li a:hover {
+                        color: #007bff;
+    }
+</style>
 
 <div class="text-center">
     
-    <h1 class="display-4">Welcome</h1>
+    <h3 class="display-7">Apply for Medical Courses for Session 2023</h3>
+    
+    <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card">
+                <img src="~/image/1.jpg" class="card-img-top" alt="Image 1" height="175px">
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card">
+                <img src="~/image/2.jpg" class="card-img-top" alt="Image 2">
+                
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card">
+                <img src="~/image/3.jpg" class="card-img-top" alt="Image 3">
+                
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Notice Board</h5>
+                <div class="notice-board-container">
+                    <ul class="notice-board-list">
+                        <li><strong>Important Announcement:</strong> The annual flu vaccination drive will begin on [date]. Make sure to get vaccinated to protect yourself and others.</li>
+                        <li><strong>Upcoming Event:</strong> Join us for a health awareness seminar on [topic] scheduled for [date] at [location]. Don't miss this opportunity to learn valuable health tips.</li>
+                        <li><strong>Medical Camp:</strong> A free medical camp will be organized on [date] at [location]. Qualified doctors will provide consultations and basic health check-ups.</li>
+                        <li><strong>Health Tip of the Week:</strong> Did you know that regular exercise can reduce the risk of chronic diseases? Make it a habit to engage in physical activity for at least 30 minutes every day.</li>
+                        <li><strong>Community Health Drive:</strong> Join our community health drive and help promote good health practices. Contact the health department for more information.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    @*
+    <div class="col-md-6 col-lg-3 mb-4">
+    <div class="important-links-section">
+    <h4>Important Links</h4>
+    <ul style="list-style-type:none">
+    <li><a href="https://meghealth.gov.in/" style="text-decoration:none">DHS Official Website</a></li>
+    <li><a href="https://meghealth.gov.in/chc.html" style="text-decoration:none">Health Centers</a></li>
+    <li><a href="https://meghealth.gov.in/mimhans.html" style="text-decoration:none">Family Health Facilities</a></li>
+
+    </ul>
+    </div>
+    </div>
+    *@
+  
+    <div class="col-md-6 col-lg-3 mb-4">
+        <h3>Important Links</h3>
+        <table class="table important-links-table">
+           
+            <tbody>
+                <tr>
+                    <td><a href="https://meghealth.gov.in/" style="text-decoration: none">DHS Official Website</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://meghealth.gov.in/chc.html" style="text-decoration: none">Health Centers</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://meghealth.gov.in/mimhans.html" style="text-decoration: none">Family Health Facilities</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
     
 </div>

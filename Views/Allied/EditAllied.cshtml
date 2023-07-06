@@ -1,0 +1,28 @@
+﻿@model List<NIC.Models.MCoursesAlliedCourse>;
+@{
+}
+<h1>Allied Courses</h1>
+
+<a class="btn btn-primary" asp-area="" asp-controller="Allied" asp-action="AddAllied"><i class="fa-solid fa-plus fa-xl"></i> Add Allied Courses</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>AcCourse Code</th>
+            <th>Course Name</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AcCourseCode</td>
+                <td>@item.AcCourseName</td>
+                <td><a class="btn btn-primary" href="View/@item.AcCourseCode"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
