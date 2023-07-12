@@ -36,14 +36,15 @@ namespace NIC.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    City = model.City
+                    //City = model.City
+                    City = "Shillong"
                 };
 
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Success", "Home");
                 }
                 foreach (var error in result.Errors)
                 {

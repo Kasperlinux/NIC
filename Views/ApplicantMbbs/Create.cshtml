@@ -21,7 +21,7 @@
 
 <div class="row offset-md-1">
     <div>
-        <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <form asp-action="Create" method="post" enctype="multipart/form-data" onsubmit="showMessage()">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-md-5">
@@ -34,99 +34,7 @@
                         
                     </div>
                 </div>
-                @*<div class="col-md-5">
-                    <div class="form-group">
-                        <h3>Select Preference for the Courses</h3>
-                        <div class="row">                         
-                            <div class="col-md-3">
-                                    MBBS :
-                            </div>
-                            <div class="col-md-3">
-                                
-                                <select class="select" id="MBBS1" asp-for="MBBS1" name="MBBS1" onchange="disablePreference(this.value,this.id);">
-                                        <option value="">Select Preference</option>
-                                    <option asp-for="MBBS1" value="1">1</option>
-                                    <option asp-for="MBBS1" value="2">2</option>
-                                    <option asp-for="MBBS1" value="3">3</option>
-                                    <option asp-for="MBBS1" value="4">4</option>
-                                    <option asp-for="MBBS1" value="5">5</option>
-                                    </select>
-                            </div>                                                     
-                        </div>                      
-                        
-                        <div class="row">
-                            <div class="col-md-3">
-                                    BDS :
-                             </div>
-                             <div class="col-md-3">
-                                <select class="select" id="BDS2" asp-for="BDS2" name="BDS2" onchange="disablePreference(this.value,this.id);">
-                                        <option value="">Select Preference</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                              </div>                           
-                        </div>       
-                        
-                        <div class="row">
-                            <div class="col-md-3">
-                                BHMS :
-                            </div>
-                            <div class="col-md-3">
-                                <select class="select" id="BHMS3" asp-for="BHMS3" name="BHMS3" onchange="disablePreference(this.value,this.id);">
-                                    <option value="">Select Preference</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                        </div>                           
-                       
-                        <div class="row">
-                            <div class="col-md-3">
-                                BAMS :
-                            </div>
-                            <div class="col-md-3">
-                                <select class="select" id="BAMS4" asp-for="BAMS4" name="BAMS4" onchange="disablePreference(this.value,this.id);">
-                                    <option value="">Select Preference</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-
-                        </div>
-                      
-                        <div class="row">
-                            <div class="col-md-3">
-                                BASLP :
-                            </div>
-                            <div class="col-md-3">
-
-                                <select class="select" id="BASLP5" asp-for="BASLP5" name="BASLP5" onchange="disablePreference(this.value,this.id);">
-                                    <option value="">Select Preference</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option> 
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input type="button" value="Reset" onclick="resetForm();">
-                            </div>
-                            
-                        </div>
-                  </div>
-                </div> *@   
+                
                 <div class="col-md-5">
                     <div class="form-group">
                         <h3>Select Preference for the Courses</h3>
@@ -304,92 +212,139 @@
             <div class="row">
                 <h3>Academic Information Class 12 </h3>
             </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <label asp-for="PercentageXii" class="control-label"> 12 Percentage</label>
-                    <input type="number" asp-for="PercentageXii" class="form-control" min="0" max="100"  />
-                    <span asp-validation-for="PercentageXii" class="text-danger"></span>
+            
+           
+            <div class="row col-md-10">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subjects</th>
+                            <th>Theory</th>
+                            <th>Practical</th>
+                            <th>Full Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Physics</td>
+                            <td>
+                                <label asp-for="MarksPhysicsTheory" class="control-label">Theory Marks</label>
+                                <input id="MarksPhysicsTheory" type="number" asp-for="MarksPhysicsTheory" class="form-control" min="0" max="80" />
+                                <span asp-validation-for="MarksPhysicsTheory" class="text-danger"></span>
+                            </td>
+                            <td>
+                                <label asp-for="MarksPhysicsPractical" class="control-label">Practical Marks</label>
+                                <input id="MarksPhysicsPractical" type="number" asp-for="MarksPhysicsPractical" class="form-control" min="0" max="20" />
+                                <span asp-validation-for="MarksPhysicsPractical" class="text-danger"></span>
+                            </td>
+                            <td>
+                                <label asp-for="FullmarksPhysics" class="control-label"> Full Marks</label>
+                                <input id="FullmarksPhysicsDisplay" type="number" class="form-control" disabled="disabled" />
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Chemistry</td>
+                            <td>
+                                <label asp-for="MarksChemistryTheory" class="control-label">Theory Marks</label>
+                                <input id="MarksChemistryTheory" type="number" asp-for="MarksChemistryTheory" class="form-control" min="0" max="80" />
+                                <span asp-validation-for="MarksChemistryTheory" class="text-danger"></span>
+                            </td>
+                            <td>
+                                <label asp-for="MarksChemistryPractical" class="control-label">Practical Marks</label>
+                                <input id="MarksChemistryPractical" type="number" asp-for="MarksChemistryPractical" class="form-control" min="0" max="20" />
+                                <span asp-validation-for="MarksChemistryPractical" class="text-danger"></span>
+                            </td>
+                            <td>
+                                <label asp-for="FullmarksChemistry" class="control-label">Full Marks</label>
+                                <input id="FullmarksChemistryDisplay" type="number" class="form-control" disabled="disabled" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Biology</td>
+                            <td>
+                                <label asp-for="MarksBiologyTheory" class="control-label">Theory Marks</label>
+                                <input id="MarksBiologyTheory" type="number" asp-for="MarksBiologyTheory" class="form-control" min="0" max="80" />
+                                <span asp-validation-for="MarksBiologyTheory" class="text-danger"></span>
+                            </td>
+                            <td>
+                                <label asp-for="MarksBiologyPractical" class="control-label">Practical Marks</label>
+                                <input id="MarksBiologyPractical" type="number" asp-for="MarksBiologyPractical" class="form-control" min="0" max="20" />
+                                <span asp-validation-for="MarksBiologyPractical" class="text-danger"></span>
+                            </td>
+                            <td>
+                                <label asp-for="FullmarksBiology" class="control-label">Full Marks</label>
+                                <input id="FullmarksBiologyDisplay" type="number" class="form-control" disabled="disabled" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td>
+                                <label asp-for="MarksEnglishTheory" class="control-label"> Theory Marks</label>
+                                <input id="MarksEnglishTheory" type="number" asp-for="MarksEnglishTheory" class="form-control" min="0" max="80" />
+                                <span asp-validation-for="MarksEnglishTheory" class="text-danger"></span>
+                            </td>
+                            <td>
+                                <label asp-for="MarksEnglishPractical" class="control-label">Pratical Marks</label>
+                                <input id="MarksEnglishPractical" type="number" asp-for="MarksEnglishPractical" class="form-control" min="0" max="20" />
+                                <span asp-validation-for="MarksEnglishPractical" class="text-danger"></span>
+                            </td>
+                            <td>
+                                <label asp-for="FullmarksEnglish" class="control-label">Full Marks</label>
+                                <input id="FullmarksEnglishDisplay" type="number" class="form-control" disabled="disabled" />
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
                 </div>
-                <div class="col-md-5">
-                    <label asp-for="PercentagePcbXii" class="control-label">12 PCB Percentage</label>
-                    <input type="number" asp-for="PercentagePcbXii" class="form-control" min="0" max="100" />
-                    <span asp-validation-for="PercentagePcbXii" class="text-danger"></span>
-                </div>
+            <hr class="col-md-10" />
+              
+                <div class="row col-md-10">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> Class 12 %</td>
+                            <td>
+                                
+                                <input type="number" asp-for="PercentageXii" class="form-control" min="0" max="100" />
+                                <span asp-validation-for="PercentageXii" class="text-danger"></span>
+                            </td>
+                          
+                           
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Class 12 PCB %
+                            </td>
+                            <td>
+                                <input type="number" asp-for="PercentagePcbXii" class="form-control" min="0" max="100" />
+                                <span asp-validation-for="PercentagePcbXii" class="text-danger"></span>
+                            </td>
+                            
+                           
+                        </tr>
+                        <tr>
+                            <td>
+                                Class 12 PCBE %
+                            </td>
+                            <td>
+                                <input type="number" asp-for="PercentagePcbeXii" class="form-control" min="0" max="100" />
+                                <span asp-validation-for="PercentagePcbeXii" class="text-danger"></span>
+                            </td>
+                          
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <label asp-for="PercentagePcbeXii" class="control-label">12 PCBE Percentage</label>
-                    <input type="number" asp-for="PercentagePcbeXii" class="form-control" min="0" max="100" />
-                    <span asp-validation-for="PercentagePcbeXii" class="text-danger"></span>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <h4>Physics</h4>
-                    <label asp-for="MarksPhysicsTheory" class="control-label">Theory Marks</label>
-                    <input id="MarksPhysicsTheory" type="number" asp-for="MarksPhysicsTheory" class="form-control" min="0" max="80" />
-                    <span asp-validation-for="MarksPhysicsTheory" class="text-danger"></span>
-
-                    <label asp-for="MarksPhysicsPractical" class="control-label">Practical Marks</label>
-                    <input id="MarksPhysicsPractical" type="number" asp-for="MarksPhysicsPractical" class="form-control" min="0" max="20" />
-                    <span asp-validation-for="MarksPhysicsPractical" class="text-danger"></span>
-
-                    <label asp-for="FullmarksPhysics" class="control-label"> Full Marks</label>
-                    <input id="FullmarksPhysicsDisplay" type="number" class="form-control" disabled="disabled" />
-                    
-                </div>
-
-                <div class="col-md-5">
-                    <h4>Chemistry</h4>
-                    <label asp-for="MarksChemistryTheory" class="control-label">Theory Marks</label>
-                    <input id="MarksChemistryTheory" type="number" asp-for="MarksChemistryTheory" class="form-control" min="0" max="80" />
-                    <span asp-validation-for="MarksChemistryTheory" class="text-danger"></span>
-
-                    <label asp-for="MarksChemistryPractical" class="control-label">Practical Marks</label>
-                    <input id="MarksChemistryPractical" type="number" asp-for="MarksChemistryPractical" class="form-control" min="0" max="20" />
-                    <span asp-validation-for="MarksChemistryPractical" class="text-danger"></span>
-
-                    <label asp-for="FullmarksChemistry" class="control-label">Full Marks</label>
-                    <input id="FullmarksChemistryDisplay" type="number"  class="form-control" disabled="disabled" />
-                    
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <h4>Biology</h4>
-                        <label asp-for="MarksBiologyTheory" class="control-label">Theory Marks</label>
-                        <input id="MarksBiologyTheory" type="number" asp-for="MarksBiologyTheory" class="form-control" min="0" max="80" />
-                        <span asp-validation-for="MarksBiologyTheory" class="text-danger"></span>
-
-                        <label asp-for="MarksBiologyPractical" class="control-label">Practical Marks</label>
-                        <input id="MarksBiologyPractical" type="number" asp-for="MarksBiologyPractical" class="form-control" min="0" max="20" />
-                        <span asp-validation-for="MarksBiologyPractical" class="text-danger"></span>
-
-                        <label asp-for="FullmarksBiology" class="control-label">Full Marks</label>
-                        <input id="FullmarksBiologyDisplay" type="number"  class="form-control" disabled="disabled" />
-                       
-                    </div>
-                </div>
-
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <h4>English</h4>
-                        <label asp-for="MarksEnglishTheory" class="control-label"> Theory Marks</label>
-                        <input id="MarksEnglishTheory" type="number" asp-for="MarksEnglishTheory" class="form-control" min="0" max="80" />
-                        <span asp-validation-for="MarksEnglishTheory" class="text-danger"></span>
-
-                        <label asp-for="MarksEnglishPractical" class="control-label">Pratical Marks</label>
-                        <input id="MarksEnglishPractical" type="number" asp-for="MarksEnglishPractical" class="form-control" min="0" max="20" />
-                        <span asp-validation-for="MarksEnglishPractical" class="text-danger"></span>
-
-                        <label asp-for="FullmarksEnglish" class="control-label">Full Marks</label>
-                        <input id="FullmarksEnglishDisplay" type="number" class="form-control" disabled="disabled" />
-                       
-                    </div>
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col-md-5">
                     <label asp-for="NeetUgCurrentScore" class="control-label">Neet Ug Current Score</label>
@@ -530,7 +485,7 @@
             
             <hr class="col-md-10" />
             <div class="row">
-                <h3>Document Upload</h3>
+                <h3>Document Upload</h3><h5>(Max size for each codument : 100KB)</h5>
             </div>
             <div class="row">
                 <div class="col-md-5">
@@ -653,17 +608,7 @@
 <div>
 </div>
 @section scripts{
-    <script>
-        //function category()
-        //{
-        //    let checkBox = document.getElementById('Category');
-        //    let categoryUpload = document.getElementById('CategoryCertificate');
-        //    if(checkBox.ariaValueMax== 4)
-        //    {
-        //        categoryUpload.setAttribute(disabled)
-        //    }
-        //}
-    </script>
+    
   
 
     <script>
@@ -740,52 +685,7 @@
 
        
     </script>
-   @* <script>
-        // Function to disable selected preference in other select elements
-        function disablePreference(selectedValue, currentSelectId) {
-            const selectIds = ['MBBS1', 'BDS2', 'BHMS3', 'BAMS4', 'BASLP5'];
-
-            // Enable all options
-            for (let i = 0; i < selectIds.length; i++) {
-                const selectId = selectIds[i];
-                const select = document.getElementById(selectId);
-                for (let j = 0; j < select.options.length; j++) {
-                    select.options[j].disabled = false;
-                }
-            }
-
-            // Disable selected preference in other select elements
-            for (let i = 0; i < selectIds.length; i++) {
-                const selectId = selectIds[i];
-                const select = document.getElementById(selectId);
-
-                // Skip the current select element
-                if (selectId !== currentSelectId && select.value === selectedValue) {
-                    select.value = '';
-                }
-
-                // Disable the selected option in other select elements
-                for (let j = 0; j < select.options.length; j++) {
-                    if (select.options[j].value === selectedValue) {
-                        select.options[j].disabled = true;
-                    }
-                }
-            }
-        }
-
-        // Function to reset all select elements
-        function resetForm() {
-            const selectIds = ['MBBS1', 'BDS2', 'BHMS3', 'BAMS4', 'BASLP5'];
-            for (let i = 0; i < selectIds.length; i++) {
-                const selectId = selectIds[i];
-                const select = document.getElementById(selectId);
-                select.value = '';
-                for (let j = 0; j < select.options.length; j++) {
-                    select.options[j].disabled = false;
-                }
-            }
-        }
-    </script>*@
+   
     <script>
         // Function to disable selected preference in other select elements
         function disablePreference(selectedValue, currentSelectId) {
@@ -846,6 +746,11 @@
             var fileExtension = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
             fileTypeError.style.display = validExtensions.indexOf(fileExtension) === -1 ? 'inline' : 'none';
         });
+    </script>
+    <script>
+        function showMessage() {
+            alert("Form submitted successfully!");
+        }
     </script>
 
 

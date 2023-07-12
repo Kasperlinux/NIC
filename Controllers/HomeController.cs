@@ -50,6 +50,19 @@ namespace NIC.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult PageDown() {
+            return View();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Success()
+        {
+            return View();
+        }
+
 
     }
 }
