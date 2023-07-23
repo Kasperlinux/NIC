@@ -1,0 +1,34 @@
+﻿@model List<ApplicantsMbb>
+
+
+    @foreach (var applicant in Model)
+    {
+        <tr>
+            <td id="AppId">@applicant.ApplicantId</td>
+            <td>@applicant.AplicantName</td>
+            <td>@applicant.AgeAsOnCutOffDate</td>
+            <td>@applicant.Gender</td>
+            <td>@applicant.Mobile</td>
+            <td>@applicant.PercentageXii</td>
+            <td>
+            @if (@applicant.ApplicationStatus == 1)
+            {
+                <span class="btn btn-dark color">Not Processed</span>
+            }
+            @if (@applicant.ApplicationStatus == 2)
+            {
+                <span class="btn btn-success">Accepted</span>
+            }
+            @if (@applicant.ApplicationStatus == 3)
+            {
+                <span class="btn btn-danger">Rejected</span>
+            }
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@applicant.ApplicantId">View Data</a>
+            </td>
+        </tr>
+    }
+
+   
+

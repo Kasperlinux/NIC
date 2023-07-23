@@ -2,56 +2,145 @@
 <h3>Mbbs</h3>
 
 
+<div class="filter-section">
+    <form id="filterForm">
+        <div class="form-group">
+            <label for="categoryFilter">Filter by Category:</label>
+            <select class="form-control" id="categoryFilter">
+                <option value="">All</option>
+                <option value="1">ST(Khasi & Jaintia)</option>
+                <option value="2">St(Garo)</option>
+                <option value="3">St(Other ST)</option>
+                <option value="4">General</option>
+                <!-- Add more options based on your categories -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="sortOption">Sort By:</label>
+            <select class="form-control" id="sortOption">
+                <option value="">All</option>
+                <option value="Physics">Physics Full Marks</option>
+                <option value="Chemistry">Chemistry Full Marks</option>
+                <option value="Biology">Biology Full Marks</option>
+                <option value="NeetScore">NEET Score</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="appStatus">Application Status: </label>
+            <select class="form-control" id="appStatus">
+                <option value="">All</option>
+                <option value="1">Not Processed</option>
+                <option value="2">Accepted</option>
+                <option value="3">Rejected</option>
+               
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Apply Filter & Sort</button>
+    </form>
+</div>
+
+
+
 <div class="table table-responsive">
     <table class="table table-border table-striped" id="dataTableData">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Image</th>
+                
                 <th>Applicant Name</th>
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Mobile</th>
                 <th>XII Percentage</th>
+                <th>Application Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        @*<partial name="_ApplicantsTablePartial" />*@
+       
+        
+        <tbody id="tableBodyData">
             @foreach (var applicant in Model)
             {
                 <tr>
                     <td id="AppId">@applicant.ApplicantId</td>
-                   @* <td>
-                        <img src="data:image/png;base64,@(@applicant.PassportPhoto != null ? System.Convert.ToBase64String(@applicant.PassportPhoto) : "~/image/placeholder.png")" width="70" height="70" />
-                    </td>*@
-                    <td>
-                        @if (applicant.PassportPhoto != null)
-                        {
-                            <img src="data:image/png;base64,@(applicant.PassportPhoto != null ? System.Convert.ToBase64String(applicant.PassportPhoto) : "~/image/placeholder.png")" width="70" height="70" onclick="openFullscreen(this)" />
-                        }
-                        else
-                        {
-                            <img src="~/image/placeholder.png" width="70" height="70" />
-                        }
-                    </td>
+                   
+                    
 
                     <td>@applicant.AplicantName</td>
                     <td>@applicant.AgeAsOnCutOffDate</td>
-                    @*<img src="h:\nic\wwwroot\image\placeholder.png" />*@
+                 
                     <td>@applicant.Gender</td>
                     <td>@applicant.Mobile</td>
                     <td>@applicant.PercentageXii</td>
                     <td>
-                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@applicant.ApplicantId">View Data</a>|
-
-
+                        @if (@applicant.ApplicationStatus == 1)
+                        {
+                            <span class="btn btn-dark color">Not Processed</span>
+                        }
+                        @if(@applicant.ApplicationStatus == 2){ <span class="btn btn-success">Accepted</span>}
+                        @if(@applicant.ApplicationStatus == 3){ <span class="btn btn-danger">Rejected</span>}
                     </td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@applicant.ApplicantId">View Data</a>
+                    </td>
+                    
                 </tr>
             }
         </tbody>
+        
     </table>
 </div>
 
 @section scripts{
-    @*<script src="~/js/datatable_file.js"></script>*@
+    <script src="~/js/datatable.js"></script>
+    
+    <script>
+    $(document).ready(function () {
+        // Function to submit the filter and sort form
+        $('#filterForm').submit(function (event) {
+            event.preventDefault();
+            applyFilterAndSort();
+        });
+
+        function applyFilterAndSort() {
+            var categoryFilterValue = $('#categoryFilter').val();
+            var sortOptionValue = $('#sortOption').val();
+                var appStatusvalue = $('#appStatus').val();
+
+            var url = '@Url.Action("FilteredAndSortedData", "ApplicantMbbs")'; // Replace YourControllerName with your actual controller name
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                    data: { category: categoryFilterValue, sortOption: sortOptionValue, appStatus: appStatusvalue },
+                success: function (result) {
+                    // Replace the current table body with the filtered and sorted data
+                        console.log(result);
+                        $('#tableBodyData').html(result);
+                },
+                error: function (xhr, status, error) {
+                    // Handle error if necessary
+                }
+            });
+        }
+    });
+</script>
+   @* <script>
+        $(document).ready(function () {
+            // Initialize DataTables with the Buttons extension
+            $('#dataTableData').DataTable({
+                dom: 'Bfrtip', // Show buttons (B) - Buttons for exporting, filtering (f), and table info (r), and pagination (t), and input (i)
+                buttons: [
+                    'copyHtml5', // Copy to clipboard
+                    'excelHtml5', // Export to Excel
+                    'csvHtml5',   // Export to CSV
+                    'pdfHtml5',   // Export to PDF
+                    'print'       // Print button
+                ]
+            });
+        });
+    </script>*@
+
+
 }  

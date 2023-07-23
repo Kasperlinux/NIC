@@ -41,8 +41,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
+    <link href="~/datatable/jquery.datatables.css" rel="stylesheet" />
+    <link href="~/datatable/jquery.datatables.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.bootstrap5.min.css">
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+
+
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed"> 
     <div class="wrapper">
 
         <!-- Preloader -->
@@ -235,7 +247,7 @@
                        
                         
                         
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
@@ -244,7 +256,7 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                @*<li class="nav-item">
+                                <li class="nav-item">
                                     <a asp-controller="Master" asp-action="EditState" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>States</p>
@@ -270,7 +282,7 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Village</p>
                                     </a>
-                                </li>*@
+                                </li>
                                 <li class="nav-item">
                                     <a asp-controller="Age" asp-action="EditAge" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -349,7 +361,7 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Session</p>
                                     </a>
-                                </li>
+                                </li>*@
 
                     </ul>
                 </nav>
@@ -424,6 +436,11 @@
     <script src="~/Dashboard/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/Dashboard/dist/js/pages/dashboard.js"></script>
+
+    
+    <script src="~/datatable/jquery.datatables.js"></script>
+    <script src="~/datatable/jquery.datatables.min.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
