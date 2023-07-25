@@ -317,31 +317,23 @@ namespace NIC.Controllers
             return View(applicants);
         }
 
-        
+
         public IActionResult FilteredAndSortedData(int? category, string sortOption, int? appStatus)
         {
             var applicants = context.ApplicantsMbbs.ToList();
 
-            // Apply filtering based on the selected category (if any)
-            //if (category.HasValue)
-            //{
-            //    applicants = applicants.Where(a => a.Category == category.Value).ToList();
-            //}
-            //if (appStatus.HasValue && appStatus.Value >0)
-            //{
-            //    applicants = applicants.Where(a => a.ApplicationStatus == appStatus.Value).ToList();
-            //}
-            if (category.HasValue && appStatus.HasValue && appStatus.Value > 0)
+
+            if (category.HasValue&&appStatus.HasValue&&appStatus.Value>0)
             {
-                applicants = applicants.Where(a => a.Category == category.Value && a.ApplicationStatus == appStatus.Value).ToList();
+                applicants=applicants.Where(a => a.Category==category.Value&&a.ApplicationStatus==appStatus.Value).ToList();
             }
             else if (category.HasValue)
             {
-                applicants = applicants.Where(a => a.Category == category.Value).ToList();
+                applicants=applicants.Where(a => a.Category==category.Value).ToList();
             }
-            else if (appStatus.HasValue && appStatus.Value > 0)
+            else if (appStatus.HasValue&&appStatus.Value>0)
             {
-                applicants = applicants.Where(a => a.ApplicationStatus == appStatus.Value).ToList();
+                applicants=applicants.Where(a => a.ApplicationStatus==appStatus.Value).ToList();
             }
 
 
@@ -349,16 +341,16 @@ namespace NIC.Controllers
             switch (sortOption)
             {
                 case "Physics":
-                    applicants = applicants.OrderBy(a => a.FullmarksPhysics).ToList();
+                    applicants=applicants.OrderBy(a => a.FullmarksPhysics).ToList();
                     break;
                 case "Chemistry":
-                    applicants = applicants.OrderBy(a => a.FullmarksChemistry).ToList();
+                    applicants=applicants.OrderBy(a => a.FullmarksChemistry).ToList();
                     break;
                 case "Biology":
-                    applicants = applicants.OrderBy(a => a.FullmarksBiology).ToList();
+                    applicants=applicants.OrderBy(a => a.FullmarksBiology).ToList();
                     break;
                 case "NeetScore":
-                    applicants = applicants.OrderBy(a => a.NeetUgCurrentScore).ToList();
+                    applicants=applicants.OrderBy(a => a.NeetUgCurrentScore).ToList();
                     break;
                 default:
                     break;
@@ -366,6 +358,8 @@ namespace NIC.Controllers
 
             return PartialView("_ApplicantsTablePartial", applicants);
         }
+
+
 
 
 

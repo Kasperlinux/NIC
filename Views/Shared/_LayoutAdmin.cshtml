@@ -37,15 +37,38 @@
     <!-- Add jQuery library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Add fancybox library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  
 
-    <link href="~/datatable/jquery.datatables.css" rel="stylesheet" />
-    <link href="~/datatable/jquery.datatables.min.css" rel="stylesheet" />
+    @*<link href="~/datatable/jquery.datatables.css" rel="stylesheet" />
+    <link href="~/datatable/jquery.datatables.min.css" rel="stylesheet" />*@
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.bootstrap5.min.css">
+   @* <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.bootstrap5.min.css">*@
+
+  @*  <!-- DataTables  & Plugins -->
+    <script src="~/Dashboard/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/Dashboard/plugins/jszip/jszip.min.js"></script>
+    <script src="~/Dashboard/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/Dashboard/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/Dashboard/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>*@
+
+    <!-- DataTables -->
+    @*<link rel="stylesheet" href="~/Dashboard/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Dashboard/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Dashboard/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">*@
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/Dashboard/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Dashboard/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Dashboard/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
 
   
 
@@ -436,6 +459,19 @@
     <script src="~/datatable/jquery.datatables.js"></script>
     <script src="~/datatable/jquery.datatables.min.js"></script>
 
+    <!-- DataTables  & Plugins -->
+    <script src="~/Dashboard/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/Dashboard/plugins/jszip/jszip.min.js"></script>
+    <script src="~/Dashboard/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/Dashboard/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/Dashboard/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Dashboard/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     
 
     @await RenderSectionAsync("Scripts", required: false)
