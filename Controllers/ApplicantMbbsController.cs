@@ -4,6 +4,7 @@ using NIC.Data;
 using NIC.Models;
 using System.Data;
 using NIC.Models.ViewModel;
+using System.Net.NetworkInformation;
 
 namespace NIC.Controllers
 {
@@ -358,6 +359,11 @@ namespace NIC.Controllers
 
             return PartialView("_ApplicantsTablePartial", applicants);
         }
+
+
+
+        
+
 
 
 

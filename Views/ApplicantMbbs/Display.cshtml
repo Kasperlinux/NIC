@@ -38,10 +38,12 @@
         <button type="submit" class="btn btn-primary">Apply Filter & Sort</button>
     </form>
 </div>
+<hr />
+<div class="row">
+    <a class="btn btn-primary">Generate Report</a>
+</div>
 
-
-
-        <div class="table table-responsive">
+<div class="table table-responsive">
     <table class="table table-border table-striped" id="dataTableData"> 
         <thead>
             <tr>
@@ -93,7 +95,7 @@
 </div>
 
 @section scripts{
-    @*<script src="~/js/datatable.js"></script>*@
+    <script src="~/js/datatable.js"></script>
     
     <script>
     $(document).ready(function () {
@@ -116,7 +118,7 @@
                     data: { category: categoryFilterValue, sortOption: sortOptionValue, appStatus: appStatusvalue },
                 success: function (result) {
                     // Replace the current table body with the filtered and sorted data
-                        console.log(result);
+                        
                         $('#tableBodyData').html(result);
                 },
                 error: function (xhr, status, error) {
@@ -126,17 +128,12 @@
         }
     });
 </script>
- <script>
-        $(function () {
-                $("#dataTableData").DataTable({
-                    "responsive": true, "lengthChange": false, "autoWidth": false,
-                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#dataTableData_wrapper .col-md-6:eq(0)');
-                
-            });
- </script>
+   
+
        
-       
+  <script>
+        
+  </script>     
            
 
 
