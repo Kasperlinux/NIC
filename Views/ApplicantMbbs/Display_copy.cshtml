@@ -18,17 +18,17 @@
         <div class="form-group">
             <label for="sortOption">Sort By:</label>
             <select class="form-control" id="sortOption">
-                <option value="">All</option>
-                <option value="Physics">Physics Full Marks</option>
-                <option value="Chemistry">Chemistry Full Marks</option>
-                <option value="Biology">Biology Full Marks</option>
-                <option value="NeetScore">NEET Score</option>
+                <option value="0">Applicant's Id</option>
+                <option value="1">Physics Full Marks</option>
+                <option value="2">Chemistry Full Marks</option>
+                <option value="3">Biology Full Marks</option>
+                <option value="4">NEET Score</option>
             </select>
         </div>
         <div class="form-group">
             <label for="appStatus">Application Status: </label>
             <select class="form-control" id="appStatus">
-                <option value="">All</option>
+                <option value="0">All</option>
                 <option value="1">Not Processed</option>
                 <option value="2">Accepted</option>
                 <option value="3">Rejected</option>
@@ -42,8 +42,9 @@
 
 
 <div class="row">
-    <a class="btn btn-primary" id="generateReportButton">Generate Report</a>
+    <a class="btn btn-primary"  onclick="generateReport()">Generate Report</a>
 </div>
+
 
 <hr />
 
@@ -99,52 +100,73 @@
 </div>
 
 @section scripts{
-    @*<script src="~/js/datatable.js"></script>*@
-   
-    
     <script>
-    $(document).ready(function () {
-        // Function to submit the filter and sort form
-        $('#filterForm').submit(function (event) {
-            event.preventDefault();
-            applyFilterAndSort();
-        });
+      
+        function generateReport(){
 
-        function applyFilterAndSort() {
-            var categoryFilterValue = $('#categoryFilter').val();
-            var sortOptionValue = $('#sortOption').val();
-                var appStatusvalue = $('#appStatus').val();
+            //var categoryFilterValue = $('#categoryFilter').val();
+            //var sortOptionValue = $('#sortOption').val();
+            //var appStatusvalue = $('#appStatus').val();
 
-            var url = '@Url.Action("FilteredAndSortedData", "ApplicantMbbs")'; // Replace YourControllerName with your actual controller name
+            var categoryFilterValue = 1; // replace with actual value
+            var sortOptionValue = 0; // replace with actual value
+            var appStatusvalue = 1; // replace with actual value
 
-            $.ajax({
-                type: 'GET',
-                url: url,
-                    data: { category: categoryFilterValue, sortOption: sortOptionValue, appStatus: appStatusvalue },
-                success: function (result) {
-                    // Replace the current table body with the filtered and sorted data
-                        
-                        $('#tableBodyData').html(result);
-                },
-                error: function (xhr, status, error) {
-                    // Handle error if necessary
-                }
-            });
+           
+
+           
+                $.ajax({
+                    url: '/ApplicantMbbs/FilteredAndSortedDataR?category=' + categoryFilterValue + '&sortOption=' + sortOptionValue + '&appStatus=' + appStatusvalue,
+
+                    success: function (result) { 
+                    //console.log("Reached");
+                        $.each(result, function (i, data) {
+                            
+
+
+                        });
+                    }
+                });
+            
         }
-    });
-</script>
+
+
+        
+      
+    </script>
+    <script src="~/js/datatable.js"></script>
 
     <script>
         $(document).ready(function () {
-            $('#dataTableData').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print', 'colvis'
-                ]
+            // Function to submit the filter and sort form
+            $('#filterForm').submit(function (event) {
+                event.preventDefault();
+                applyFilterAndSort();
             });
-        })
-    </script>
-           
 
+            function applyFilterAndSort() {
+                var categoryFilterValue = $('#categoryFilter').val();
+                var sortOptionValue = $('#sortOption').val();
+                var appStatusvalue = $('#appStatus').val();
+
+                var url = '@Url.Action("FilteredAndSortedData", "ApplicantMbbs")'; // Replace YourControllerName with your actual controller name
+
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    data: { category: categoryFilterValue, sortOption: sortOptionValue, appStatus: appStatusvalue },
+                    success: function (result) {
+                        // Replace the current table body with the filtered and sorted data
+
+                        $('#tableBodyData').html(result);
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle error if necessary
+                    }
+                });
+            }
+            });
+       
+    </script>
 
 }  

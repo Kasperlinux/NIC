@@ -4,7 +4,7 @@ using NIC.Data;
 using NIC.Models;
 using System.Data;
 using NIC.Models.ViewModel;
-using System.Net.NetworkInformation;
+using ClosedXML.Excel;
 
 namespace NIC.Controllers
 {
@@ -360,9 +360,43 @@ namespace NIC.Controllers
             return PartialView("_ApplicantsTablePartial", applicants);
         }
 
+        public IActionResult FilteredAndSortedDataR(int? category, int? sortOption, int? appStatus)
+        {
+            var applicants = context.ApplicantsMbbs.ToList();
 
 
-        
+            if (category.HasValue&&appStatus.HasValue&&appStatus.Value>0)
+            {
+                applicants=applicants.Where(a => a.Category==category.Value&&a.ApplicationStatus==appStatus.Value).ToList();
+            }
+            else if (category.HasValue)
+            {
+                applicants=applicants.Where(a => a.Category==category.Value).ToList();
+            }
+            else if (appStatus.HasValue&&appStatus.Value>0)
+            {
+                applicants=applicants.Where(a => a.ApplicationStatus==appStatus.Value).ToList();
+            }
+
+
+            // Apply sorting based on the selected sort option
+            applicants=sortOption switch
+            {
+                1 => applicants.OrderBy(a => a.FullmarksPhysics).ToList(),
+                2 => applicants.OrderBy(a => a.FullmarksChemistry).ToList(),
+                3 => applicants.OrderBy(a => a.FullmarksBiology).ToList(),
+                4 => applicants.OrderBy(a => a.NeetUgCurrentScore).ToList(),
+                _ => applicants.OrderBy(a => a.ApplicantId).ToList(),
+            };
+            return View(applicants);
+        }
+
+
+
+
+
+
+
 
 
 
