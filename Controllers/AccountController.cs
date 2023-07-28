@@ -6,7 +6,10 @@ using NIC.Models.ViewModel;
 
 namespace NIC.Controllers
 {
+<<<<<<< HEAD
     [Authorize(Roles = "Admin")]
+=======
+>>>>>>> master
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
@@ -36,15 +39,23 @@ namespace NIC.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
+<<<<<<< HEAD
                     //City = model.City
                     City = "Shillong"
+=======
+                    City = model.City
+>>>>>>> master
                 };
 
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
+<<<<<<< HEAD
                     return RedirectToAction("Success", "Home");
+=======
+                    return RedirectToAction("Index", "Home");
+>>>>>>> master
                 }
                 foreach (var error in result.Errors)
                 {
@@ -55,7 +66,10 @@ namespace NIC.Controllers
         }
 
         [HttpPost]
+<<<<<<< HEAD
         [AllowAnonymous]
+=======
+>>>>>>> master
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
@@ -87,7 +101,11 @@ namespace NIC.Controllers
                     //{
                     //    return RedirectToAction("Index", "Home");
                     //}
+<<<<<<< HEAD
                     return RedirectToAction("Admin", "Home");
+=======
+                    return RedirectToAction("Index", "Home");
+>>>>>>> master
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
 

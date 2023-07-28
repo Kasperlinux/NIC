@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+=======
+﻿using Microsoft.AspNetCore.Authorization;
+>>>>>>> master
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NIC.Data;
 using NIC.Models;
+<<<<<<< HEAD
 using System.Data;
 using NIC.Models.ViewModel;
 using ClosedXML.Excel;
@@ -9,6 +14,14 @@ using ClosedXML.Excel;
 namespace NIC.Controllers
 {
 
+=======
+using NIC.Models.ViewModel;
+using System.Data;
+
+namespace NIC.Controllers
+{
+    [Authorize]
+>>>>>>> master
     public class ApplicantMbbsController : Controller
     {
         private readonly DhsMagacoursesContext context;
@@ -93,7 +106,11 @@ namespace NIC.Controllers
             return new JsonResult(data);
         }
 
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> master
 
         public JsonResult Category()
         {
@@ -115,12 +132,20 @@ namespace NIC.Controllers
 
 
         [HttpGet]
+<<<<<<< HEAD
 
+=======
+        [AllowAnonymous]
+>>>>>>> master
         public IActionResult Create()
         {
             return View();
         }
 
+<<<<<<< HEAD
+=======
+        [AllowAnonymous]
+>>>>>>> master
         [HttpPost]
         public IActionResult Create(MbbsViewModel model)
         {
@@ -143,8 +168,11 @@ namespace NIC.Controllers
 
                 var dataBase = new ApplicantsMbb()
                 {
+<<<<<<< HEAD
                     ScreeningCentre = model.ScreeningCentre,
 
+=======
+>>>>>>> master
                     AplicantName = model.AplicantName,
                     Dob = model.Dob,
 
@@ -184,6 +212,7 @@ namespace NIC.Controllers
 
                     MarksPhysicsTheory = model.MarksPhysicsTheory,
                     MarksPhysicsPractical = model.MarksPhysicsPractical,
+<<<<<<< HEAD
                     FullmarksPhysics = model.MarksPhysicsTheory + model.MarksPhysicsPractical,
 
 
@@ -191,11 +220,24 @@ namespace NIC.Controllers
                     MarksChemistryPractical = model.MarksChemistryPractical,
                     FullmarksChemistry = model.MarksChemistryTheory + model.MarksChemistryPractical,
 
+=======
+                    FullmarksPhysics = (model.MarksPhysicsTheory + model.MarksPhysicsPractical),
+                    
+                    
+                    MarksChemistryTheory = model.MarksChemistryTheory,
+                    MarksChemistryPractical = model.MarksChemistryPractical,
+                    FullmarksChemistry = model.MarksChemistryTheory + model.MarksChemistryPractical,
+                    
+>>>>>>> master
 
                     MarksBiologyTheory = model.MarksBiologyTheory,
                     MarksBiologyPractical = model.MarksBiologyPractical,
                     FullmarksBiology = model.MarksBiologyTheory + model.MarksBiologyPractical,
+<<<<<<< HEAD
 
+=======
+                    
+>>>>>>> master
 
                     MarksEnglishTheory = model.MarksEnglishTheory,
                     MarksEnglishPractical = model.MarksEnglishPractical,
@@ -218,6 +260,7 @@ namespace NIC.Controllers
                     DataEntryIp = Request.HttpContext.Connection.RemoteIpAddress.ToString(),
                     AgeAsOnCutOffDate = age,
                 };
+<<<<<<< HEAD
 
                 context.Add(dataBase);
                 context.SaveChanges();
@@ -288,6 +331,11 @@ namespace NIC.Controllers
 
 
                 return RedirectToAction("Index","Home");
+=======
+                context.Add(dataBase);
+                context.SaveChanges();
+                return RedirectToAction("Display");
+>>>>>>> master
             }
             else
             {
@@ -311,13 +359,18 @@ namespace NIC.Controllers
 
 
         //Original
+<<<<<<< HEAD
 
+=======
+       
+>>>>>>> master
         public IActionResult Display()
         {
             var applicants = context.ApplicantsMbbs.ToList();
             return View(applicants);
         }
 
+<<<<<<< HEAD
 
         public IActionResult FilteredAndSortedData(int? category, string sortOption, int? appStatus)
         {
@@ -405,6 +458,8 @@ namespace NIC.Controllers
 
 
 
+=======
+>>>>>>> master
         // GET: ApplicantsMbbs/Details/5
         [HttpGet]
         public async Task<IActionResult> Details(int? id)

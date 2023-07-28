@@ -55,11 +55,17 @@ public partial class ApplicantsMbb
 
     [Column("eMail")]
     [StringLength(100)]
+<<<<<<< HEAD
     [EmailAddress]
     public string? EMail { get; set; }
 
     [StringLength(10)]
     [Phone]
+=======
+    public string? EMail { get; set; }
+
+    [StringLength(10)]
+>>>>>>> master
     public string? Mobile { get; set; }
 
     public int? Nationality { get; set; }
@@ -179,6 +185,9 @@ public partial class ApplicantsMbb
     public string? ModifiedIp { get; set; }
 
     public int? AgeAsOnCutOffDate { get; set; }
+<<<<<<< HEAD
 
     public int? ScreeningCentre { get; set; }
+=======
+>>>>>>> master
 }

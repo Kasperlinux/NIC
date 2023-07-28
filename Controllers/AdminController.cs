@@ -9,7 +9,11 @@ using System.Drawing;
 
 namespace NIC.Controllers
 {
+<<<<<<< HEAD
     [Authorize(Roles ="Admin")]
+=======
+   
+>>>>>>> master
     public class AdminController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;

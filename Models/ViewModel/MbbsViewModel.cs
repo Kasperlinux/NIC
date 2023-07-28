@@ -50,12 +50,18 @@ namespace NIC.Models.ViewModel
         public string? PresentAddress { get; set; }
 
         [Column("eMail")]
+<<<<<<< HEAD
         [EmailAddress]
+=======
+>>>>>>> master
         [StringLength(100)]
         public string? EMail { get; set; }
 
         [StringLength(10)]
+<<<<<<< HEAD
         [Phone]
+=======
+>>>>>>> master
         public string? Mobile { get; set; }
 
         public int? Nationality { get; set; }
@@ -176,6 +182,7 @@ namespace NIC.Models.ViewModel
         public string? ModifiedIp { get; set; }
 
         public int? AgeAsOnCutOffDate { get; set; }
+<<<<<<< HEAD
 
         public int? MBBS1 { get; set; }
 
@@ -188,5 +195,7 @@ namespace NIC.Models.ViewModel
         public int? BASLP5 { get; set; }
 
         public int? ScreeningCentre { get; set; }
+=======
+>>>>>>> master
     }
 }
