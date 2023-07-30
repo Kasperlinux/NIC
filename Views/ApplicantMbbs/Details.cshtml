@@ -1,5 +1,8 @@
 ﻿@model NIC.Models.ApplicantsMbb
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 <style>
     .borderless-input {
         border: none;
@@ -10,17 +13,28 @@
 
 
 
+<<<<<<< HEAD
 
 <h1>Details</h1>
 <a class="btn btn-primary" asp-action="Display">Back</a>
+=======
+<h1>Details</h1>
+
+>>>>>>> master
 
 <h4>Applicants Data</h4>
 <hr />
 <form asp-action="Details" method="post">
+<<<<<<< HEAD
    
     <div class="row">
         <div class="col-md-4">
             <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(@Model.PassportPhoto)" width="200" height="200" />
+=======
+    <div class="row">
+        <div class="col-md-4">
+            <img src="data:image/png;base64,@System.Convert.ToBase64String(@Model.PassportPhoto)" width="200" height="200" />
+>>>>>>> master
             <h5>@Model.AplicantName</h5>
         </div>
         <div class="col-md-4">
@@ -52,7 +66,11 @@
         </div>
         <div class="col-md-6">
             <p><strong> Neet Score Card </strong></p>
+<<<<<<< HEAD
             <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.NeetUgScoresheet)" width="200" height="200" onclick="openFullscreen(this)" />
+=======
+            <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.NeetUgScoresheet)" width="200" height="200" onclick="openFullscreen(this)" />
+>>>>>>> master
             <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.NeetUgScoresheet)" download="NeetUgScoresheet.png"><i class="fas fa-download"></i></a>
         </div>
     </div>
@@ -129,7 +147,11 @@
             <p><strong> Guardian Employer Certificate </strong></p>
             @if (Model.GuardianEmployerCertificate != null)
             {
+<<<<<<< HEAD
                 <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.GuardianEmployerCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+=======
+                <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.GuardianEmployerCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+>>>>>>> master
                 <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.GuardianEmployerCertificate)" download="EmpCerti.png"><i class="fas fa-download"></i></a>
             }
             else
@@ -151,7 +173,11 @@
             <p><strong>Age proof</strong></p>
             @if (Model.AgeProof != null)
             {
+<<<<<<< HEAD
                 <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.AgeProof)" width="200" height="200" onclick="openFullscreen(this)" />
+=======
+                <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.AgeProof)" width="200" height="200" onclick="openFullscreen(this)" />
+>>>>>>> master
                 <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.AgeProof)" download="PrCetificate.png"><i class="fas fa-download"></i></a>
             }
             else
@@ -162,7 +188,11 @@
         </div>
         <div class="col-md-6">
             <p><strong>Marksheet</strong></p>
+<<<<<<< HEAD
             <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.Marksheet)" width="200" height="200" onclick="openFullscreen(this)" />
+=======
+            <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.Marksheet)" width="200" height="200" onclick="openFullscreen(this)" />
+>>>>>>> master
             <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.Marksheet)" download="Marksheet.png"><i class="fas fa-download"></i></a>
 
 
@@ -172,14 +202,22 @@
     <div class="row offset-2">
         <div class="col-md-6">
             <p><strong>Character Certificate</strong></p>
+<<<<<<< HEAD
             <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.CharacterCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+=======
+            <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.CharacterCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+>>>>>>> master
             <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.CharacterCertificate)" download="CharacterCertificate.png"><i class="fas fa-download"></i></a>
         </div>
         <div class="col-md-6">
             <p><strong>Category Certificate</strong></p>
             @if (Model.CategoryCertificate != null)
             {
+<<<<<<< HEAD
                 <img class="zoomable-image" src="data:image/png;base64,@System.Convert.ToBase64String(Model.CategoryCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+=======
+                <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.CategoryCertificate)" width="200" height="200" onclick="openFullscreen(this)" />
+>>>>>>> master
                 <a href="data:image/png;base64,@System.Convert.ToBase64String(Model.CategoryCertificate)" download="CategoryCertificate.png"><i class="fas fa-download"></i></a>
             }
             else
@@ -231,6 +269,7 @@
     <script src="~/js/getfunction.js"></script>
 
 
+<<<<<<< HEAD
     
     <script>
         // Get all images with the 'zoomable-image' class
@@ -267,4 +306,30 @@
     </script>
 
 
+=======
+    <script>
+        //function openFullscreen(img) {
+
+        //    if (img.requestFullscreen) {
+        //        img.requestFullscreen();
+        //    } else if (img.webkitRequestFullscreen) { /* Safari */
+        //        img.webkitRequestFullscreen();
+        //    } else if (img.msRequestFullscreen) { /* IE11 */
+        //        img.msRequestFullscreen();
+        //    }
+        //}
+        //function openFullscreen(element) {
+        //    if (element.requestFullscreen) {
+        //        element.requestFullscreen();
+        //    } else if (element.mozRequestFullScreen) { // Firefox
+        //        element.mozRequestFullScreen();
+        //    } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        //        element.webkitRequestFullscreen();
+        //    } else if (element.msRequestFullscreen) { // IE/Edge
+        //        element.msRequestFullscreen();
+        //    }
+        //}
+    </script>
+
+>>>>>>> master
 }

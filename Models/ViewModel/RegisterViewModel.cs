@@ -18,6 +18,10 @@ namespace NIC.Models.ViewModel
             ErrorMessage = "Passwrod and Confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
+<<<<<<< HEAD
         public string? City { get; set; }
+=======
+        public string City { get; set; }
+>>>>>>> master
     }
 }

@@ -13,7 +13,11 @@
 </style>
 
 <div class="offset-1">
+<<<<<<< HEAD
   
+=======
+    <h1>Create</h1>
+>>>>>>> master
 
     <h4>Applicants Mbbs</h4>
     <hr class="col-md-10" />
@@ -21,11 +25,16 @@
 
 <div class="row offset-md-1">
     <div>
+<<<<<<< HEAD
         <form asp-action="Create" method="post" enctype="multipart/form-data" onsubmit="showMessage()">
+=======
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+>>>>>>> master
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <h3>Select Screening Center</h3>
                         <select asp-for="ScreeningCentre">
                             <option value="1">Shillong</option>
@@ -132,6 +141,9 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <label asp-for="AplicantName" class="control-label">Aplicant Name</label>
+=======
+                        <label asp-for="AplicantName" class="control-label"></label>
+>>>>>>> master
                         <input asp-for="AplicantName" class="form-control" />
                         <span asp-validation-for="AplicantName" class="text-danger"></span>
                     </div>
@@ -161,14 +173,23 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <label asp-for="Mobile" class="control-label"></label>
+<<<<<<< HEAD
                         <input asp-for="Mobile" class="form-control" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" type="number"/>
+=======
+                        <input asp-for="Mobile" class="form-control" />
+>>>>>>> master
                         <span asp-validation-for="Mobile" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="EMail" class="control-label">E Mail</label>
                         <input asp-for="EMail" class="form-control" pattern="[a-zA-Z0-9._%+-]+[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address"/>
+=======
+                        <label asp-for="EMail" class="control-label"></label>
+                        <input asp-for="EMail" class="form-control" />
+>>>>>>> master
                         <span asp-validation-for="EMail" class="text-danger"></span>
                     </div>
                 </div>
@@ -210,6 +231,7 @@
             </div>
             <hr class="col-md-10" />
             <div class="row">
+<<<<<<< HEAD
                 <h3>Academic Information Class 12 </h3>
             </div>
             
@@ -349,16 +371,115 @@
                 <div class="col-md-5">
                     <label asp-for="NeetUgCurrentScore" class="control-label">Neet Ug Current Score</label>
                     <input type="number" asp-for="NeetUgCurrentScore" class="form-control" min="0" max="500" />
+=======
+                <h3>Academic Information</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <label asp-for="PercentageXii" class="control-label">Class 12 Percentage</label>
+                    <input type="number" asp-for="PercentageXii" class="form-control" />
+                    <span asp-validation-for="PercentageXii" class="text-danger"></span>
+                </div>
+                <div class="col-md-5">
+                    <label asp-for="PercentagePcbXii" class="control-label">Class 12 PCB Percentage</label>
+                    <input type="number" asp-for="PercentagePcbXii" class="form-control" />
+                    <span asp-validation-for="PercentagePcbXii" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <label asp-for="PercentagePcbeXii" class="control-label">Class 12 PCBE Percentage</label>
+                    <input type="number" asp-for="PercentagePcbeXii" class="form-control" />
+                    <span asp-validation-for="PercentagePcbeXii" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <h4>Physics</h4>
+                    <label asp-for="MarksPhysicsTheory" class="control-label">Physics Theory Marks</label>
+                    <input id="MarksPhysicsTheory" type="number" asp-for="MarksPhysicsTheory" class="form-control" />
+                    <span asp-validation-for="MarksPhysicsTheory" class="text-danger"></span>
+
+                    <label asp-for="MarksPhysicsPractical" class="control-label">Physics Practical Marks</label>
+                    <input id="MarksPhysicsPractical" type="number" asp-for="MarksPhysicsPractical" class="form-control" />
+                    <span asp-validation-for="MarksPhysicsPractical" class="text-danger"></span>
+
+                    <label asp-for="FullmarksPhysics" class="control-label">Physics Full Marks</label>
+                    <input id="FullmarksPhysicsDisplay" type="number" class="form-control" disabled="disabled" />
+                    
+                </div>
+
+                <div class="col-md-5">
+                    <h4>Chemistry</h4>
+                    <label asp-for="MarksChemistryTheory" class="control-label">Chemistry Theory Marks</label>
+                    <input id="MarksChemistryTheory" type="number" asp-for="MarksChemistryTheory" class="form-control" />
+                    <span asp-validation-for="MarksChemistryTheory" class="text-danger"></span>
+
+                    <label asp-for="MarksChemistryPractical" class="control-label">Chemistry Practical Marks</label>
+                    <input id="MarksChemistryPractical" type="number" asp-for="MarksChemistryPractical" class="form-control" />
+                    <span asp-validation-for="MarksChemistryPractical" class="text-danger"></span>
+
+                    <label asp-for="FullmarksChemistry" class="control-label">Chemistry Full Marks</label>
+                    <input id="FullmarksChemistryDisplay" type="number"  class="form-control" disabled="disabled" />
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <h4>Biology</h4>
+                        <label asp-for="MarksBiologyTheory" class="control-label">Biology Theory Marks</label>
+                        <input id="MarksBiologyTheory" type="number" asp-for="MarksBiologyTheory" class="form-control" />
+                        <span asp-validation-for="MarksBiologyTheory" class="text-danger"></span>
+
+                        <label asp-for="MarksBiologyPractical" class="control-label">Biology Practical Marks</label>
+                        <input id="MarksBiologyPractical" type="number" asp-for="MarksBiologyPractical" class="form-control" />
+                        <span asp-validation-for="MarksBiologyPractical" class="text-danger"></span>
+
+                        <label asp-for="FullmarksBiology" class="control-label">Biology Full Marks</label>
+                        <input id="FullmarksBiologyDisplay" type="number"  class="form-control" disabled="disabled" />
+                       
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <h4>English</h4>
+                        <label asp-for="MarksEnglishTheory" class="control-label">English Theory Marks</label>
+                        <input id="MarksEnglishTheory" type="number" asp-for="MarksEnglishTheory" class="form-control" />
+                        <span asp-validation-for="MarksEnglishTheory" class="text-danger"></span>
+
+                        <label asp-for="MarksEnglishPractical" class="control-label">English Pratical Marks</label>
+                        <input id="MarksEnglishPractical" type="number" asp-for="MarksEnglishPractical" class="form-control" />
+                        <span asp-validation-for="MarksEnglishPractical" class="text-danger"></span>
+
+                        <label asp-for="FullmarksEnglish" class="control-label">English Full Marks</label>
+                        <input id="FullmarksEnglishDisplay" type="number" class="form-control" disabled="disabled" />
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <label asp-for="NeetUgCurrentScore" class="control-label">Neet Ug Current Score</label>
+                    <input type="number" asp-for="NeetUgCurrentScore" class="form-control" />
+>>>>>>> master
                     <span asp-validation-for="NeetUgCurrentScore" class="text-danger"></span>
                 </div>
                 <div class="col-md-5">
                     <label asp-for="NeetUgScoresheet" class="control-label">Neet Ug Scoresheet</label>
+<<<<<<< HEAD
                     <input type="file" asp-for="NeetUgScoresheet" class="form-control" name="NeetUgScoresheet" accept=".jpg, .jpeg, .png" />
                     <br>
                     <span id="fileSizeError" style="color: red; display: none;">File size should not exceed .</span>
                     <span id="fileTypeError" style="color: red; display: none;">Only JPG, JPEG, and PNG files are allowed.</span>
                     <br>
                     
+=======
+                    <input type="file" asp-for="NeetUgScoresheet" class="form-control" name="NeetUgScoresheet" />
+                    <span asp-validation-for="NeetUgScoresheet" class="text-danger"></span>
+>>>>>>> master
                 </div>
 
             </div>
@@ -374,25 +495,41 @@
                         </div>
                     </div>
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="PermanentState" class="control-label">Permanent State</label>
+=======
+                        <label asp-for="PermanentState" class="control-label"></label>
+>>>>>>> master
                         <select id="PerState" class="form-control" asp-for="PermanentState">
                             <option selected disabled>Select State</option>
                         </select>
                     </div>
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="PermanentDistrict" class="control-label">Permanent District</label>
+=======
+                        <label asp-for="PermanentDistrict" class="control-label"></label>
+>>>>>>> master
                         <select id="PerDistrict" class="form-control" asp-for="PermanentDistrict">
                             <option selected disabled>Select District</option>
                         </select>
                     </div>
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="PermanentBlock" class="control-label">Permanent Block</label>
+=======
+                        <label asp-for="PermanentBlock" class="control-label"></label>
+>>>>>>> master
                         <select id="PerBlock" class="form-control" asp-for="PermanentBlock">
                             <option selected disabled>Select Block</option>
                         </select>
                     </div>
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="PermanentVillage" class="control-label">Permanent Village</label>
+=======
+                        <label asp-for="PermanentVillage" class="control-label"></label>
+>>>>>>> master
                         <select id="PerVillage" class="form-control" asp-for="PermanentVillage">
                             <option selected disabled>Select Village</option>
                         </select>
@@ -414,21 +551,33 @@
                     </div>
                     <div id="originalDiv">
                         <div class="form-group">
+<<<<<<< HEAD
                             <label asp-for="PresentState" class="control-label">Present State</label>
+=======
+                            <label asp-for="PresentState" class="control-label"></label>
+>>>>>>> master
                             <select id="PreState" class="form-control" asp-for="PresentState">
                                 <option selected disabled>Select State</option>
                             </select>
                             <span asp-validation-for="PresentState" class="text-danger"></span>
                         </div>
                         <div class="form-group">
+<<<<<<< HEAD
                             <label asp-for="PresentDistrict" class="control-label">Present District</label>
+=======
+                            <label asp-for="PresentDistrict" class="control-label"></label>
+>>>>>>> master
                             <select id="PreDistrict" class="form-control" asp-for="PresentDistrict">
                                 <option selected disabled>Select District</option>
                             </select>
                             <span asp-validation-for="PresentDistrict" class="text-danger"></span>
                         </div>
                         <div class="form-group">
+<<<<<<< HEAD
                             <label asp-for="PresentBlock" class="control-label">Present Block</label>
+=======
+                            <label asp-for="PresentBlock" class="control-label"></label>
+>>>>>>> master
                             <select id="PreBlock" class="form-control" asp-for="PresentBlock">
                                 <option selected disabled>Select Block</option>
                             </select>
@@ -436,7 +585,11 @@
                         </div>
 
                         <div class="form-group">
+<<<<<<< HEAD
                             <label asp-for="PresentVillage" class="control-label">Present Village</label>
+=======
+                            <label asp-for="PresentVillage" class="control-label"></label>
+>>>>>>> master
                             <select id="PreVillage" class="form-control" asp-for="PresentVillage">
                                 <option selected disabled>Select Village</option>
                             </select>
@@ -450,23 +603,39 @@
                     </div>
                     <div id="hideDiv" style="display: none;">
                         <div class="form-group">
+<<<<<<< HEAD
                             <label asp-for="PresentState" class="control-label">Present State</label>
+=======
+                            <label asp-for="PresentState" class="control-label"></label>
+>>>>>>> master
                             <input id="SameState" class="form-control" />
                             <span asp-validation-for="PresentState" class="text-danger"></span>
                         </div>
                         <div class="form-group">
+<<<<<<< HEAD
                             <label asp-for="PresentDistrict" class="control-label">Present District</label>
+=======
+                            <label asp-for="PresentDistrict" class="control-label"></label>
+>>>>>>> master
                             <input id="SameDistrict" class="form-control" />
                             <span asp-validation-for="PresentDistrict" class="text-danger"></span>
                         </div>
                         <div class="form-group">
+<<<<<<< HEAD
                             <label asp-for="PresentBlock" class="control-label">Present Block</label>
+=======
+                            <label asp-for="PresentBlock" class="control-label"></label>
+>>>>>>> master
                             <input id="SameBlock" class="form-control" />
                             <span asp-validation-for="PresentBlock" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
+<<<<<<< HEAD
                             <label asp-for="PresentVillage" class="control-label">Present Village</label>
+=======
+                            <label asp-for="PresentVillage" class="control-label"></label>
+>>>>>>> master
                             <input id="SameVillage" class="form-control" />
                             <span asp-validation-for="PresentVillage" class="text-danger"></span>
                         </div>
@@ -485,19 +654,31 @@
             
             <hr class="col-md-10" />
             <div class="row">
+<<<<<<< HEAD
                 <h3>Document Upload</h3><h5>(Max size for each codument : 100KB)</h5>
+=======
+                <h3>Document Upload</h3>
+>>>>>>> master
             </div>
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="PassportPhoto" class="control-label">Passport Photo</label>
+=======
+                        <label asp-for="PassportPhoto" class="control-label"></label>
+>>>>>>> master
                         <input type="file" asp-for="PassportPhoto" class="form-control" name="passportPhoto" />
                         <span asp-validation-for="PassportPhoto" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="PrCetificate" class="control-label">Pr Cetificate</label>
+=======
+                        <label asp-for="PrCetificate" class="control-label"></label>
+>>>>>>> master
                         <input type="file" asp-for="PrCetificate" class="form-control" />
                         <span asp-validation-for="PrCetificate" class="text-danger"></span>
                     </div>
@@ -506,14 +687,22 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="CategoryCertificate" class="control-label">Category Certificate</label>
+=======
+                        <label asp-for="CategoryCertificate" class="control-label"></label>
+>>>>>>> master
                         <input id="CategoryCertificate" type="file" asp-for="CategoryCertificate" class="form-control" />
                         <span asp-validation-for="CategoryCertificate" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="AgeProof" class="control-label">Age Proof</label>
+=======
+                        <label asp-for="AgeProof" class="control-label"></label>
+>>>>>>> master
                         <input type="file" asp-for="AgeProof" class="form-control" />
                         <span asp-validation-for="AgeProof" class="text-danger"></span>
                     </div>
@@ -530,7 +719,11 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="CharacterCertificate" class="control-label">Character Certificate</label>
+=======
+                        <label asp-for="CharacterCertificate" class="control-label"></label>
+>>>>>>> master
                         <input type="file" asp-for="CharacterCertificate" class="form-control" />
                         <span asp-validation-for="CharacterCertificate" class="text-danger"></span>
                     </div>
@@ -543,14 +736,22 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="GuardianName" class="control-label">Guardian Name</label>
+=======
+                        <label asp-for="GuardianName" class="control-label"></label>
+>>>>>>> master
                         <input asp-for="GuardianName" class="form-control" />
                         <span asp-validation-for="GuardianName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="GuardianOccupation" class="control-label">Guardian Occupation</label>
+=======
+                        <label asp-for="GuardianOccupation" class="control-label"></label>
+>>>>>>> master
                         <input asp-for="GuardianOccupation" class="form-control" />
                         <span asp-validation-for="GuardianOccupation" class="text-danger"></span>
                     </div>
@@ -559,14 +760,22 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="GuardianOfficeName" class="control-label">Guardian OfficeName</label>
+=======
+                        <label asp-for="GuardianOfficeName" class="control-label"></label>
+>>>>>>> master
                         <input asp-for="GuardianOfficeName" class="form-control" />
                         <span asp-validation-for="GuardianOfficeName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="GuardianOfficeAddress" class="control-label">Guardian OfficeAddress</label>
+=======
+                        <label asp-for="GuardianOfficeAddress" class="control-label"></label>
+>>>>>>> master
                         <input asp-for="GuardianOfficeAddress" class="form-control" />
                         <span asp-validation-for="GuardianOfficeAddress" class="text-danger"></span>
                     </div>
@@ -575,7 +784,11 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
+<<<<<<< HEAD
                         <label asp-for="GuardianEmployerCertificate" class="control-label">GuardianEmployer Certificate</label>
+=======
+                        <label asp-for="GuardianEmployerCertificate" class="control-label"></label>
+>>>>>>> master
                         <input type="file" asp-for="GuardianEmployerCertificate" class="form-control" />
                         <span asp-validation-for="GuardianEmployerCertificate" class="text-danger"></span>
                     </div>
@@ -588,6 +801,7 @@
             <hr class="col-md-10" />
             <div class="row">
                 <div class="form-group offset-4">
+<<<<<<< HEAD
                     @if(this.User.IsInRole("Admin"))
                     {
                         <input type="submit" value="Submit" class="btn btn-primary" disabled/>
@@ -597,6 +811,17 @@
                         <input type="submit" value="Submit" class="btn btn-primary" />
                     }
                     
+=======
+                   @* @if(this.User.IsInRole("Admin"))
+                    {
+                        <input type="submit" value="Submit Form" class="btn btn-primary" disabled/>
+                    }
+                    else
+                    {
+                        <input type="submit" value="Submit Form" class="btn btn-primary" />
+                    }*@
+                    <input type="submit" value="Submit Form" class="btn btn-primary" />
+>>>>>>> master
                     
                 </div>
             </div>
@@ -608,7 +833,21 @@
 <div>
 </div>
 @section scripts{
+<<<<<<< HEAD
     
+=======
+    <script>
+        //function category()
+        //{
+        //    let checkBox = document.getElementById('Category');
+        //    let categoryUpload = document.getElementById('CategoryCertificate');
+        //    if(checkBox.ariaValueMax== 4)
+        //    {
+        //        categoryUpload.setAttribute(disabled)
+        //    }
+        //}
+    </script>
+>>>>>>> master
   
 
     <script>
@@ -681,6 +920,7 @@
                 updateFullmarksEnglish();
             });
         });
+<<<<<<< HEAD
 
 
        
@@ -754,6 +994,9 @@
     </script>
 
 
+=======
+    </script>
+>>>>>>> master
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/js/cascade.js"></script>

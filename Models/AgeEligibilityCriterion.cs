@@ -6,10 +6,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NIC.Models;
 
+<<<<<<< HEAD
 
 public partial class AgeEligibilityCriterion
 {
     [Key]
+=======
+[Keyless]
+public partial class AgeEligibilityCriterion
+{
+>>>>>>> master
     [Column("Session_Code")]
     public int? SessionCode { get; set; }
 

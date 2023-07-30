@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
 <h3>Mbbs</h3>
 
@@ -47,17 +48,27 @@
 
 <hr />
 
+=======
+﻿<h3>Mbbs</h3>
+
+
+>>>>>>> master
 <div class="table table-responsive">
     <table class="table table-border table-striped" id="dataTableData">
         <thead>
             <tr>
                 <th>Id</th>
+<<<<<<< HEAD
                 
+=======
+                <th>Image</th>
+>>>>>>> master
                 <th>Applicant Name</th>
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Mobile</th>
                 <th>XII Percentage</th>
+<<<<<<< HEAD
                 <th>Application Status</th>
                 <th>Actions</th>
             </tr>
@@ -66,20 +77,33 @@
        
         
         <tbody id="tableBodyData">
+=======
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+>>>>>>> master
             @foreach (var applicant in Model)
             {
                 <tr>
                     <td id="AppId">@applicant.ApplicantId</td>
+<<<<<<< HEAD
                    
                     
 
                     <td>@applicant.AplicantName</td>
                     <td>@applicant.AgeAsOnCutOffDate</td>
                  
+=======
+                    <td><img src="data:image/png;base64,@System.Convert.ToBase64String(@applicant.PassportPhoto)" width="70" height="70" /></td>
+                    <td>@applicant.AplicantName</td>
+                    <td>@applicant.AgeAsOnCutOffDate</td>
+>>>>>>> master
                     <td>@applicant.Gender</td>
                     <td>@applicant.Mobile</td>
                     <td>@applicant.PercentageXii</td>
                     <td>
+<<<<<<< HEAD
                         @if (@applicant.ApplicationStatus == 1)
                         {
                             <span class="btn btn-dark color">Not Processed</span>
@@ -95,10 +119,20 @@
             }
         </tbody>
         
+=======
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@applicant.ApplicantId">View Data</a>|
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+>>>>>>> master
     </table>
 </div>
 
 @section scripts{
+<<<<<<< HEAD
     @*<script src="~/js/datatable.js"></script>*@
    
     
@@ -147,4 +181,7 @@
            
 
 
+=======
+    @*<script src="~/js/datatable_file.js"></script>*@
+>>>>>>> master
 }  
